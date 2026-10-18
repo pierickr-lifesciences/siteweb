@@ -1,4 +1,4 @@
-# lifescience-ip.com
+# lifesciences-ip.com
 
 Site statique en HTML/CSS, sans outil à installer. Il est hébergé gratuitement sur GitHub Pages.
 
