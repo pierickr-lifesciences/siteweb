@@ -4,14 +4,16 @@ Site statique en HTML/CSS, sans outil à installer. Il est hébergé gratuitemen
 
 ## Où se trouve quoi
 
+Tous les fichiers sont à la racine du dépôt, sans dossier.
+
 | Fichier | Contenu |
 |---|---|
 | `index.html` | Page d'accueil : expertise, secteurs, à propos, contact |
 | `ressources.html` | Liste des articles |
-| `articles/` | Un fichier par article, avec `_modele-article.html` comme modèle |
+| `ccp-medicaments.html`, … | Un fichier par article, avec `_modele-article.html` comme modèle |
 | `mentions-legales.html` | Mentions légales (obligatoires) |
-| `css/style.css` | Le style. Les couleurs se changent tout en haut du fichier |
-| `images/` | Photos (ex. `portrait.jpg`) |
+| `style.css` | Le style. Les couleurs se changent tout en haut du fichier |
+| `.jpg` / `.png` | Photos (ex. `portrait.jpg`), à la racine |
 
 ## Modifier un texte (2 minutes, depuis le navigateur)
 
@@ -25,12 +27,12 @@ En cas d'erreur : l'onglet **History** du fichier permet de revenir à une versi
 
 ## Publier un article
 
-1. Ouvrir `articles/_modele-article.html` et copier tout son contenu.
-2. Dans le dossier `articles/`, faire **Add file → Create new file**. Le nommer par ex. `brevet-ou-secret.html` (minuscules, tirets, sans accents), puis coller le contenu.
+1. Ouvrir `_modele-article.html` et copier tout son contenu.
+2. Faire **Add file → Create new file**. Le nommer par ex. `brevet-ou-secret.html` (minuscules, tirets, sans accents), puis coller le contenu.
 3. Remplacer tout ce qui est entre [crochets], puis faire Commit.
 4. Dans `ressources.html`, dupliquer un bloc `<a class="post" …> … </a>` et mettre à jour le lien, le titre et le résumé.
 5. (Optionnel) Ajouter l'URL dans `sitemap.xml`.
 
 ## Ajouter une photo
 
-Dans le dossier `images/`, faire **Add file → Upload files**. Ensuite, dans le HTML : `<img src="images/nom-du-fichier.jpg" alt="description">`.
+Faire **Add file → Upload files**. Ensuite, dans le HTML : `<img src="nom-du-fichier.jpg" alt="description">`.
