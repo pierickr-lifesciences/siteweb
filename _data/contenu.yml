@@ -1,14 +1,9 @@
-# =========================================================
-#  TEXTES DU SITE
-#  Modifier uniquement ce qui est après les deux-points.
-#  Garder les espaces en début de ligne (l'indentation compte).
-#  Mettre le texte entre guillemets "..." s'il contient deux-points ( : ).
-# =========================================================
-
 accueil:
   surtitre: Propriété intellectuelle · Sciences de la vie
   titre: Protéger et valoriser l'innovation pharmaceutique et cosmétique
-  accroche: Accompagnement des laboratoires, marques et start-up dans leur stratégie de propriété intellectuelle — des brevets aux marques, de la veille concurrentielle à la liberté d'exploitation.
+  accroche: Accompagnement des laboratoires, marques et start-up dans leur
+    stratégie de propriété intellectuelle — des brevets aux marques, de la
+    veille concurrentielle à la liberté d'exploitation.
   bouton_principal: Prendre rendez-vous
   bouton_secondaire: Lire les ressources
   mots_cles:
@@ -18,37 +13,43 @@ accueil:
     - CCP
     - Veille
     - Contrats & licences
-
 expertise:
   titre: Un accompagnement à chaque étape du cycle de l'innovation
-  intro: De la recherche amont à la mise sur le marché, des conseils concrets adaptés aux contraintes réglementaires du secteur.
+  intro: De la recherche amont à la mise sur le marché, des conseils concrets
+    adaptés aux contraintes réglementaires du secteur.
   services:
     - titre: Stratégie brevets
-      texte: Évaluation de la brevetabilité, stratégie de dépôt et d'extension internationale, gestion de portefeuille.
+      texte: Évaluation de la brevetabilité, stratégie de dépôt et d'extension
+        internationale, gestion de portefeuille.
       icone: document
     - titre: Veille & liberté d'exploitation
-      texte: Recherches d'antériorités, analyses de liberté d'exploitation (FTO) et veille concurrentielle ciblée.
+      texte: Recherches d'antériorités, analyses de liberté d'exploitation (FTO) et
+        veille concurrentielle ciblée.
       icone: loupe
     - titre: Marques & noms de produits
-      texte: Recherches de disponibilité, dépôt et surveillance des marques, protection des noms de gammes.
+      texte: Stratégie de dépôt et surveillance des marques, protection des noms de
+        gammes.
       icone: bouclier
     - titre: Cycle de vie du médicament
-      texte: Certificats complémentaires de protection (CCP), extension pédiatrique, articulation avec les exclusivités réglementaires.
+      texte: Certificats complémentaires de protection (CCP), extension pédiatrique,
+        articulation avec les exclusivités réglementaires.
       icone: calendrier
     - titre: Savoir-faire & secrets d'affaires
-      texte: Choisir entre brevet et secret pour une formule, organiser la protection du savoir-faire en interne.
+      texte: Choisir entre brevet et secret pour une formule, organiser la protection
+        du savoir-faire en interne.
       icone: cadenas
     - titre: Contrats & audits
-      texte: Audits de portefeuille (due diligence), accords de licence, de confidentialité et de collaboration R&D.
+      texte: Audits de portefeuille (due diligence), accords de licence, de
+        confidentialité et de collaboration R&D.
       icone: contrat
-
 secteurs:
   titre: Deux industries, des enjeux de propriété intellectuelle distincts
   pharma:
     titre: Industrie pharmaceutique
     intro: Des cycles de développement longs, où chaque année de protection compte.
     points:
-      - Brevets de molécules, de formulations et de seconde application thérapeutique
+      - Brevets de molécules, de formulations et de seconde application
+        thérapeutique
       - Prolongation de la protection par CCP
       - Analyse des risques face aux génériques et biosimilaires
       - Partenariats académiques et transfert de technologie
@@ -60,14 +61,17 @@ secteurs:
       - Stratégie de marques et de noms de gammes
       - Arbitrage brevet / secret de fabrication
       - Surveillance des contrefaçons et des copies
-
 a_propos:
   nom: "[Prénom Nom]"
-  fonction: Consultant(e) en propriété intellectuelle spécialisé(e) dans les sciences de la vie.
-  photo: ""
+  fonction: Consultant(e) en propriété intellectuelle spécialisé(e) dans les
+    sciences de la vie.
   paragraphes:
-    - "[Parcours en 3–4 phrases : formation scientifique et juridique, expériences en laboratoire pharmaceutique, en groupe cosmétique ou en cabinet, ce qui motive l'activité de conseil.]"
-    - "[Approche : par exemple, un interlocuteur unique, une double culture scientifique et juridique, des recommandations opérationnelles plutôt que théoriques.]"
+    - "[Parcours en 3–4 phrases : formation scientifique et juridique,
+      expériences en laboratoire pharmaceutique, en groupe cosmétique ou en
+      cabinet, ce qui motive l'activité de conseil.]"
+    - "[Approche : par exemple, un interlocuteur unique, une double culture
+      scientifique et juridique, des recommandations opérationnelles plutôt que
+      théoriques.]"
   chiffres:
     - valeur: "[XX]"
       libelle: ans d'expérience
@@ -75,18 +79,16 @@ a_propos:
       libelle: familles de brevets suivies
     - valeur: FR · EN
       libelle: langues de travail
-
 ressources:
   titre: Comprendre la propriété intellectuelle
-  intro: Des articles pour décrypter les règles et l'actualité de la PI dans les sciences de la vie.
-
+  intro: Des articles pour décrypter les règles et l'actualité de la PI dans les
+    sciences de la vie.
 contact:
   titre: Parlons de votre projet
-  intro: Un premier échange permet de cerner vos besoins et de définir l'accompagnement adapté.
+  intro: Un premier échange permet de cerner vos besoins et de définir
+    l'accompagnement adapté.
   email: contact@lifesciences-ip.com
-  telephone: "+33 (0)0 00 00 00 00"
-  linkedin: ""
-  # Identifiant du formulaire Formspree (formspree.io), ex. xyzabcde
+  telephone: +33 (0)0 00 00 00 00
   formspree_id: VOTRE_ID
   sujets:
     - Brevets
@@ -94,7 +96,8 @@ contact:
     - Liberté d'exploitation / veille
     - Contrats / audit
     - Autre
-
 pied_de_page:
-  description: Conseil et information en propriété intellectuelle pour les industries pharmaceutique et cosmétique.
-  avertissement: Les contenus de ce site sont fournis à titre informatif et ne constituent pas un avis juridique.
+  description: Conseil et information en propriété intellectuelle pour les
+    industries pharmaceutique et cosmétique.
+  avertissement: Les contenus de ce site sont fournis à titre informatif et ne
+    constituent pas un avis juridique.
