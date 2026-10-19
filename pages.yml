@@ -1,0 +1,140 @@
+# Configuration de l'interface d'édition Pages CMS (app.pagescms.org)
+media:
+  input: images
+  output: /images
+
+content:
+  - name: articles
+    label: Articles
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: date
+        label: Date de publication
+        type: date
+      - name: categorie
+        label: Catégorie (ex. Pharma · Fiche pratique)
+        type: string
+      - name: resume
+        label: Résumé (affiché sur la carte de l'article et dans Google)
+        type: text
+      - name: lecture
+        label: Temps de lecture (minutes)
+        type: number
+      - name: body
+        label: Texte de l'article
+        type: rich-text
+
+  - name: contenu
+    label: Textes du site
+    type: file
+    path: _data/contenu.yml
+    format: yaml
+    fields:
+      - name: accueil
+        label: Accueil
+        type: object
+        fields:
+          - { name: surtitre, label: Petit texte au-dessus du titre, type: string }
+          - { name: titre, label: Titre principal, type: string }
+          - { name: accroche, label: Texte d'accroche, type: text }
+          - { name: bouton_principal, label: Bouton principal, type: string }
+          - { name: bouton_secondaire, label: Bouton secondaire, type: string }
+          - { name: mots_cles, label: Mots-clés (pastilles), type: string, list: true }
+      - name: expertise
+        label: Expertise
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: intro, label: Introduction, type: text }
+          - name: services
+            label: Services
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: texte, label: Texte, type: text }
+              - name: icone
+                label: Icône
+                type: select
+                options:
+                  values: [document, loupe, bouclier, calendrier, cadenas, contrat, fiole, globe]
+      - name: secteurs
+        label: Secteurs
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - name: pharma
+            label: Industrie pharmaceutique
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: intro, label: Introduction, type: text }
+              - { name: points, label: Points, type: string, list: true }
+          - name: cosmetique
+            label: Industrie cosmétique
+            type: object
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: intro, label: Introduction, type: text }
+              - { name: points, label: Points, type: string, list: true }
+      - name: a_propos
+        label: À propos
+        type: object
+        fields:
+          - { name: nom, label: Nom, type: string }
+          - { name: fonction, label: Fonction, type: text }
+          - { name: photo, label: Photo (format portrait), type: image }
+          - { name: paragraphes, label: Paragraphes, type: text, list: true }
+          - name: chiffres
+            label: Chiffres clés
+            type: object
+            list: true
+            fields:
+              - { name: valeur, label: Valeur, type: string }
+              - { name: libelle, label: Libellé, type: string }
+      - name: ressources
+        label: Ressources
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: intro, label: Introduction, type: text }
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: intro, label: Introduction, type: text }
+          - { name: email, label: E-mail, type: string }
+          - { name: telephone, label: Téléphone, type: string }
+          - { name: linkedin, label: Lien LinkedIn, type: string }
+          - { name: formspree_id, label: Identifiant Formspree, type: string }
+          - { name: sujets, label: Sujets proposés dans le formulaire, type: string, list: true }
+      - name: pied_de_page
+        label: Pied de page
+        type: object
+        fields:
+          - { name: description, label: Description, type: text }
+          - { name: avertissement, label: Avertissement, type: text }
+
+  - name: mentions
+    label: Mentions légales
+    type: file
+    path: mentions-legales.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Titre, type: string }
+      - { name: body, label: Texte, type: rich-text }
