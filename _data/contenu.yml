@@ -42,6 +42,9 @@ expertise:
       texte: Audits de portefeuille (due diligence), accords de licence, de
         confidentialité et de collaboration R&D.
       icone: contrat
+    - titre: Faits marquants
+      texte: A venir
+      icone: globe
 secteurs:
   titre: Deux industries, des enjeux de propriété intellectuelle distincts
   pharma:
