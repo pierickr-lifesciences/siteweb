@@ -67,9 +67,11 @@ p { margin: 0 0 1em; }
   position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
 }
-.header__inner { display: flex; align-items: center; justify-content: space-between; height: 96px; }
-.logo { display: flex; align-items: center; text-decoration: none; }
-.logo__img { height: 76px; width: auto; display: block; }
+.header__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary-dark); }
+.logo__mark { height: 44px; width: auto; flex: none; }
+.logo__text { font-family: var(--sans); font-weight: 700; font-size: 1.45rem; letter-spacing: -.015em; color: var(--primary); line-height: 1; }
+.logo__text span { color: var(--accent); font-weight: 400; font-size: 1.2em; margin-left: .06em; }
 .nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; align-items: center; }
 .nav a { text-decoration: none; color: var(--ink); font-size: .95rem; font-weight: 500; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--primary); }
@@ -176,8 +178,8 @@ form textarea { min-height: 140px; resize: vertical; }
 .footer ul { list-style: none; padding: 0; margin: 0; }
 .footer li { margin-bottom: 8px; }
 .footer__bottom { border-top: 1px solid #3a5585; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .82rem; }
-.footer .logo { display: inline-flex; background: #fff; border-radius: var(--radius); padding: 10px 16px; margin-bottom: 14px; }
-.footer .logo__img { height: 64px; }
+.footer .logo { margin-bottom: 14px; color: #8fb4ea; }
+.footer .logo__text { color: #5fb4f0; }
 
 
 /* ---------- Responsive ---------- */
@@ -189,13 +191,13 @@ form textarea { min-height: 140px; resize: vertical; }
 }
 @media (max-width: 760px) {
   body { font-size: 16px; }
-  .header__inner { height: 80px; }
-  .logo__img { height: 64px; }
+  .logo__mark { height: 32px; }
+  .logo__text { font-size: 1.25rem; }
   .section { padding: 64px 0; }
   .hero { padding: 72px 0 64px; }
   .grid--3, .grid--2 { grid-template-columns: 1fr; }
   .nav-toggle { display: block; }
-  .nav { position: absolute; top: 80px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--line); display: none; }
+  .nav { position: absolute; top: 72px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--line); display: none; }
   .nav.is-open { display: block; }
   .nav ul { flex-direction: column; align-items: flex-start; gap: 0; padding: 8px 20px 20px; }
   .nav li { width: 100%; }
