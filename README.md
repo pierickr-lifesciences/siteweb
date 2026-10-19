@@ -21,7 +21,7 @@ Les photos s'ajoutent avec le champ Image (elles vont dans le dossier `images/`)
 | `_data/contenu.yml` | Tous les textes de l'accueil | ✅ Oui |
 | `_posts/` | Un fichier par article (`AAAA-MM-JJ-titre.md`) | ✅ Oui |
 | `mentions-legales.md` | Mentions légales | ✅ Oui |
-| `images/` | Photos | ✅ Oui |
+| `images/` | Photos et logo (`logo.png`) | ✅ Oui |
 | `_layouts/`, `index.html`, `ressources.html` | Mise en page | ❌ Non |
 | `style.css` | Couleurs et styles (variables en haut du fichier) | Rarement |
 | `_config.yml`, `.pages.yml`, `CNAME` | Réglages techniques | ❌ Non |
