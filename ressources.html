@@ -1,122 +1,32 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ressources — LifeSciences IP</title>
-  <meta name="description" content="Articles et fiches pratiques sur la propriété intellectuelle dans l'industrie pharmaceutique et cosmétique.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- ===================== EN-TÊTE (identique sur toutes les pages) ===================== -->
-<header class="header">
-  <div class="container header__inner">
-    <a href="index.html" class="logo" aria-label="Accueil LifeSciences IP">
-      <img src="favicon.svg" alt="" class="logo__mark">
-      <span class="logo__text">LifeSciences <span>IP</span></span>
-    </a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="nav">
-      <ul>
-        <li><a href="index.html#expertise">Expertise</a></li>
-        <li><a href="index.html#secteurs">Secteurs</a></li>
-        <li><a href="ressources.html" aria-current="page">Ressources</a></li>
-        <li><a href="index.html#a-propos">À propos</a></li>
-        <li><a href="index.html#contact" class="btn btn--primary">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
+---
+layout: default
+title: Ressources
+menu: ressources
+description: Articles et fiches pratiques sur la propriété intellectuelle dans l'industrie pharmaceutique et cosmétique.
+---
+{%- comment -%} La liste se met à jour toute seule quand un article est ajouté dans _posts. {%- endcomment -%}
+{%- assign c = site.data.contenu -%}
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow">Ressources</span>
-    <h1>Comprendre la propriété intellectuelle en sciences de la vie</h1>
-    <p class="lead">Fiches pratiques, décryptages et actualités sur les brevets, marques et autres outils de protection dans la pharma et la cosmétique.</p>
+    <h1>{{ c.ressources.titre | escape }}</h1>
+    <p class="lead">{{ c.ressources.intro | escape }}</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <!--
-      AJOUTER UN ARTICLE :
-      1. Dupliquer _modele-article.html, le renommer (ex : mon-sujet.html) et le remplir.
-      2. Copier un bloc <a class="post">...</a> ci-dessous, le coller EN PREMIER (le plus récent en haut)
-         et changer le lien, la catégorie, le titre et le résumé.
-    -->
     <div class="grid grid--3">
-
-      <a class="post" href="ccp-medicaments.html">
+      {%- for post in site.posts %}
+      <a class="post" href="{{ post.url }}">
         <div class="card">
-          <div class="post__meta">Pharma · Fiche pratique</div>
-          <h3>Le CCP : prolonger la protection d'un médicament</h3>
-          <p>Fonctionnement, conditions et durée du certificat complémentaire de protection.</p>
+          {% if post.categorie %}<div class="post__meta">{{ post.categorie | escape }}</div>{% endif %}
+          <h3>{{ post.title | escape }}</h3>
+          <p>{{ post.resume | escape }}</p>
           <span class="post__more">Lire l'article →</span>
         </div>
       </a>
-
-      <div class="post">
-        <div class="card">
-          <div class="post__meta">Cosmétique · Bientôt</div>
-          <h3>Formule cosmétique : brevet ou secret de fabrication ?</h3>
-          <p>Les critères pour choisir la bonne stratégie de protection.</p>
-          <span class="post__more" style="color:var(--muted)">À paraître</span>
-        </div>
-      </div>
-
-      <div class="post">
-        <div class="card">
-          <div class="post__meta">Europe · Bientôt</div>
-          <h3>Brevet unitaire et Juridiction unifiée : ce qui change</h3>
-          <p>Le nouveau paysage européen des brevets expliqué simplement.</p>
-          <span class="post__more" style="color:var(--muted)">À paraître</span>
-        </div>
-      </div>
-
+      {%- endfor %}
     </div>
   </div>
 </section>
-
-</main>
-
-<!-- ===================== PIED DE PAGE (identique sur toutes les pages) ===================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <a href="index.html" class="logo"><img src="favicon.svg" alt="" class="logo__mark"><span class="logo__text">LifeSciences <span>IP</span></span></a>
-        <p>Conseil et information en propriété intellectuelle pour les industries pharmaceutique et cosmétique.</p>
-      </div>
-      <div>
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#secteurs">Secteurs</a></li>
-          <li><a href="ressources.html">Ressources</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:contact@lifesciences-ip.com">contact@lifesciences-ip.com</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>© <span data-year>2026</span> LifeSciences IP. Tous droits réservés.</span>
-      <span>Les contenus de ce site sont fournis à titre informatif et ne constituent pas un avis juridique.</span>
-    </div>
-  </div>
-</footer>
-
-<script src="main.js"></script>
-</body>
-</html>

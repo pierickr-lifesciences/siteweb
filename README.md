@@ -1,38 +1,55 @@
 # lifesciences-ip.com
 
-Site statique en HTML/CSS, sans outil à installer. Il est hébergé gratuitement sur GitHub Pages.
+Le site est généré automatiquement par GitHub Pages. Les textes sont séparés de la mise en page : on modifie les textes, jamais le HTML.
+
+## Modifier le site : la méthode simple (Pages CMS)
+
+1. Aller sur **app.pagescms.org** et cliquer sur « Sign in with GitHub ».
+2. Ouvrir le dépôt `siteweb`.
+3. Dans le menu de gauche :
+   - **Textes du site** : textes de l'accueil, services, à propos, coordonnées ;
+   - **Articles** : bouton **Add an entry** pour écrire un nouvel article ;
+   - **Mentions légales**.
+4. Cliquer sur **Save**. Le site est à jour environ 1 minute plus tard.
+
+Les photos s'ajoutent avec le champ Image (elles vont dans le dossier `images/`).
 
 ## Où se trouve quoi
 
-Tous les fichiers sont à la racine du dépôt, sans dossier.
+| Fichier | Contenu | On y touche ? |
+|---|---|---|
+| `_data/contenu.yml` | Tous les textes de l'accueil | ✅ Oui |
+| `_posts/` | Un fichier par article (`AAAA-MM-JJ-titre.md`) | ✅ Oui |
+| `mentions-legales.md` | Mentions légales | ✅ Oui |
+| `images/` | Photos | ✅ Oui |
+| `_layouts/`, `index.html`, `ressources.html` | Mise en page | ❌ Non |
+| `style.css` | Couleurs et styles (variables en haut du fichier) | Rarement |
+| `_config.yml`, `.pages.yml`, `CNAME` | Réglages techniques | ❌ Non |
 
-| Fichier | Contenu |
-|---|---|
-| `index.html` | Page d'accueil : expertise, secteurs, à propos, contact |
-| `ressources.html` | Liste des articles |
-| `ccp-medicaments.html`, … | Un fichier par article, avec `_modele-article.html` comme modèle |
-| `mentions-legales.html` | Mentions légales (obligatoires) |
-| `style.css` | Le style. Les couleurs se changent tout en haut du fichier |
-| `.jpg` / `.png` | Photos (ex. `portrait.jpg`), à la racine |
+## Écrire un article à la main (sans Pages CMS)
 
-## Modifier un texte (2 minutes, depuis le navigateur)
+Dans `_posts/`, créer un fichier `2026-11-05-mon-sujet.md` (date + titre en minuscules, avec des tirets et sans accents) :
 
-1. Se connecter sur github.com et ouvrir le dépôt du site.
-2. Cliquer sur le fichier (ex. `index.html`), puis sur l'icône **crayon** (Edit).
-3. Modifier le texte **entre** les balises. Par exemple, dans `<p>texte</p>`, on ne touche qu'à « texte ».
-4. Cliquer sur **Commit changes…** puis **Commit changes**.
-5. Le site est à jour environ 1 minute plus tard.
+```
+---
+title: "Titre de l'article"
+categorie: Cosmétique · Décryptage
+resume: Une phrase de résumé.
+lecture: 4
+---
 
-En cas d'erreur : l'onglet **History** du fichier permet de revenir à une version précédente.
+Texte de l'article. **gras**, *italique*
 
-## Publier un article
+## Un intertitre
 
-1. Ouvrir `_modele-article.html` et copier tout son contenu.
-2. Faire **Add file → Create new file**. Le nommer par ex. `brevet-ou-secret.html` (minuscules, tirets, sans accents), puis coller le contenu.
-3. Remplacer tout ce qui est entre [crochets], puis faire Commit.
-4. Dans `ressources.html`, dupliquer un bloc `<a class="post" …> … </a>` et mettre à jour le lien, le titre et le résumé.
-5. (Optionnel) Ajouter l'URL dans `sitemap.xml`.
+- une puce
+- une autre puce
 
-## Ajouter une photo
+> Un encadré mis en avant.
+```
 
-Faire **Add file → Upload files**. Ensuite, dans le HTML : `<img src="nom-du-fichier.jpg" alt="description">`.
+L'article apparaît automatiquement dans la page Ressources et sur l'accueil.
+
+## En cas d'erreur
+
+Si une modification contient une erreur, le site **n'est pas mis à jour** et l'ancienne version reste en ligne. L'onglet **Actions** du dépôt affiche une croix rouge. Il suffit alors de corriger la modification, ou de revenir en arrière via l'onglet **History** du fichier.

@@ -1,0 +1,27 @@
+# Réglages techniques du site — pas besoin d'y toucher.
+# Les textes se modifient dans _data/contenu.yml (ou via Pages CMS).
+title: LifeSciences IP
+description: Conseil et information en propriété intellectuelle pour les industries pharmaceutique et cosmétique.
+url: https://www.lifesciences-ip.com
+lang: fr
+
+# Les articles sont publiés à la racine : /ccp-medicaments.html
+permalink: /:title.html
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+  - scope:
+      path: "mentions-legales.md"
+    values:
+      layout: page
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - .pages.yml

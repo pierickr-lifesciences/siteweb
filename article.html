@@ -1,0 +1,22 @@
+---
+layout: default
+menu: ressources
+---
+{%- assign mois = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign m = page.date | date: "%-m" | minus: 1 -%}
+<section class="page-hero">
+  <div class="container" style="max-width:780px">
+    <p class="breadcrumb"><a href="/">Accueil</a> › <a href="/ressources.html">Ressources</a></p>
+    {% if page.categorie %}<span class="eyebrow">{{ page.categorie | escape }}</span>{% endif %}
+    <h1>{{ page.title | escape }}</h1>
+    <p class="lead">Publié le {{ page.date | date: "%-d" }} {{ mois[m] }} {{ page.date | date: "%Y" }}{% if page.lecture %} · Lecture {{ page.lecture }} min{% endif %}</p>
+  </div>
+</section>
+
+<article class="article">
+  {{ content }}
+
+  <blockquote><p>Une question sur votre stratégie de propriété intellectuelle ? <a href="/#contact">Prenez contact</a>.</p></blockquote>
+
+  <p class="disclaimer">Cet article est fourni à titre d'information générale et ne constitue pas un avis juridique.</p>
+</article>

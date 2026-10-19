@@ -156,6 +156,13 @@ form textarea { min-height: 140px; resize: vertical; }
   border-left: 4px solid var(--accent); background: #fbf6ef; padding: 18px 22px;
   border-radius: 0 8px 8px 0; margin: 1.6em 0; font-size: .97rem;
 }
+.article blockquote {
+  border-left: 4px solid var(--accent); background: #fbf6ef; padding: 18px 22px; color: var(--ink);
+  border-radius: 0 8px 8px 0; margin: 1.6em 0; font-size: .97rem;
+}
+.article blockquote p:last-child { margin-bottom: 0; }
+.article img { border-radius: var(--radius); margin: 1.6em 0; }
+.disclaimer { font-size: .85rem; color: var(--muted); margin-top: 3em; }
 .breadcrumb { font-size: .85rem; color: var(--muted); margin-bottom: 1.2em; }
 .breadcrumb a { color: var(--muted); }
 
