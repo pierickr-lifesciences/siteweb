@@ -6,23 +6,113 @@ layout: default
   pas ici. Ce fichier ne contient que la mise en page.
 {%- endcomment -%}
 {%- assign c = site.data.contenu -%}
+{%- assign mois = site.data.fr.mois -%}
+{%- assign analyses = site.posts | where: "rubrique", "jurisprudence" -%}
+{%- assign une = analyses.first | default: site.posts.first -%}
 
+<!-- ===================== ACCUEIL ===================== -->
 <section class="hero">
-  <div class="container">
-    <span class="eyebrow">{{ c.accueil.surtitre | escape }}</span>
-    <h1>{{ c.accueil.titre | escape }}</h1>
-    <p class="lead">{{ c.accueil.accroche | escape }}</p>
-    <div class="hero__actions">
-      <a href="#contact" class="btn btn--primary">{{ c.accueil.bouton_principal | escape }}</a>
-      <a href="/ressources.html" class="btn btn--ghost">{{ c.accueil.bouton_secondaire | escape }}</a>
+  <div class="container hero__grid">
+    <div>
+      <span class="eyebrow">{{ c.accueil.surtitre | escape }}</span>
+      <h1>{{ c.accueil.titre | escape }}</h1>
+      <p class="lead">{{ c.accueil.accroche | escape }}</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--green">{{ c.accueil.bouton_principal | escape }}</a>
+        <a href="/ressources.html" class="btn btn--light">{{ c.accueil.bouton_secondaire | escape }}</a>
+      </div>
+      <ul class="hero__tags">
+        {%- for mot in c.accueil.mots_cles %}<li>{{ mot | escape }}</li>{% endfor -%}
+      </ul>
     </div>
-    <ul class="hero__tags">
-      {%- for mot in c.accueil.mots_cles %}<li>{{ mot | escape }}</li>{% endfor -%}
-    </ul>
+
+    {%- if une %}
+    {%- assign m = une.date | date: "%-m" | minus: 1 %}
+    <a class="feature" href="{{ une.url }}">
+      <span class="feature__label">{% if une.rubrique == "jurisprudence" %}{{ c.jurisprudence.etiquette | default: "Dernière analyse" | escape }}{% else %}Dernier article{% endif %}</span>
+      <div class="feature__court">
+        {%- if une.juridiction %}{{ une.juridiction | escape }}{% if une.date_decision %} · {{ une.date_decision | escape }}{% endif %}{% else %}{{ une.date | date: "%-d" }} {{ mois[m] }} {{ une.date | date: "%Y" }}{% endif -%}
+      </div>
+      <h3>{{ une.title | escape }}</h3>
+      {%- if une.resume %}<p>{{ une.resume | escape }}</p>{% endif %}
+      <span class="feature__more">Lire l'analyse →</span>
+    </a>
+    {%- endif %}
   </div>
 </section>
 
-<section class="section section--soft" id="expertise">
+<!-- ===================== POUR QUI ===================== -->
+<section class="section" id="pour-qui">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{{ c.cibles.surtitre | escape }}</span>
+      <h2>{{ c.cibles.titre | escape }}</h2>
+      <p class="lead">{{ c.cibles.intro | escape }}</p>
+    </div>
+    <div class="audiences">
+      {%- for cible in c.cibles.liste %}
+      <div class="audience">
+        <div class="audience__tag">{{ cible.titre | escape }}</div>
+        <p>{{ cible.texte | escape }}</p>
+        <ul class="checklist">
+          {%- for p in cible.points %}<li>{{ p | escape }}</li>{% endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LE CABINET ===================== -->
+<section class="section section--soft" id="cabinet">
+  <div class="container">
+    <div class="cabinet">
+      <div class="portrait">
+        <div class="portrait__img">
+          {%- if c.a_propos.photo and c.a_propos.photo != "" -%}
+          <img src="{{ c.a_propos.photo }}" alt="Portrait de {{ c.a_propos.nom | escape }}" style="object-position: {{ c.a_propos.cadrage_photo | default: 'center 25%' }}">
+          {%- else -%}
+          Photo à ajouter
+          {%- endif -%}
+        </div>
+        <div class="portrait__card">
+          <strong>{{ c.a_propos.nom | escape }}</strong>
+          <span>{{ c.a_propos.fonction | escape }}</span>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">{{ c.cabinet.surtitre | escape }}</span>
+        <h2>{{ c.cabinet.titre | escape }}</h2>
+        <p class="lead">{{ c.cabinet.intro | escape }}</p>
+        <div class="bio">
+          {%- for p in c.a_propos.paragraphes %}
+          <p>{{ p | escape }}</p>
+          {%- endfor %}
+        </div>
+        <div class="values">
+          {%- for v in c.cabinet.valeurs %}
+          <div class="value"><h3>{{ v.titre | escape }}</h3><p>{{ v.texte | escape }}</p></div>
+          {%- endfor %}
+        </div>
+        <div class="facts">
+          {%- for f in c.a_propos.chiffres %}
+          <div><strong>{{ f.valeur | escape }}</strong><span>{{ f.libelle | escape }}</span></div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+
+    <h3 class="steps-title">{{ c.cabinet.methode_titre | escape }}</h3>
+    <div class="steps">
+      {%- for e in c.cabinet.etapes %}
+      <div class="step"><h3>{{ e.titre | escape }}</h3><p>{{ e.texte | escape }}</p></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERTISE ===================== -->
+<section class="section" id="expertise">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Expertise</span>
@@ -41,7 +131,8 @@ layout: default
   </div>
 </section>
 
-<section class="section" id="secteurs">
+<!-- ===================== SECTEURS ===================== -->
+<section class="section section--soft" id="secteurs">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Secteurs</span>
@@ -52,15 +143,10 @@ layout: default
       {%- for b in blocs %}
       {%- assign s = c.secteurs[b] %}
       <div class="sector{% if b == 'cosmetique' %} sector--cosmetic{% endif %}">
-        <div class="sector__band"></div>
-        <div class="sector__top">
-          <h3>{{ s.titre | escape }}</h3>
-          <p>{{ s.intro | escape }}</p>
-        </div>
+        <div class="sector__head"><span class="sector__dot"></span><h3>{{ s.titre | escape }}</h3></div>
+        <p>{{ s.intro | escape }}</p>
         <ul>
-          {%- for p in s.points %}
-          <li>{{ p | escape }}</li>
-          {%- endfor %}
+          {%- for p in s.points %}<li>{{ p | escape }}</li>{% endfor %}
         </ul>
       </div>
       {%- endfor %}
@@ -68,56 +154,46 @@ layout: default
   </div>
 </section>
 
-<section class="section section--soft" id="a-propos">
-  <div class="container about">
-    <div class="about__photo">
-      {%- if c.a_propos.photo and c.a_propos.photo != "" -%}
-      <img src="{{ c.a_propos.photo }}" alt="Portrait de {{ c.a_propos.nom | escape }}">
-      {%- else -%}
-      Photo à ajouter
-      {%- endif -%}
-    </div>
-    <div>
-      <span class="eyebrow">À propos</span>
-      <h2>{{ c.a_propos.nom | escape }}</h2>
-      <p class="lead">{{ c.a_propos.fonction | escape }}</p>
-      {%- for p in c.a_propos.paragraphes %}
-      <p>{{ p | escape }}</p>
-      {%- endfor %}
-      <div class="facts">
-        {%- for f in c.a_propos.chiffres %}
-        <div><strong>{{ f.valeur | escape }}</strong><span>{{ f.libelle | escape }}</span></div>
-        {%- endfor %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ressources">
+<!-- ===================== VEILLE & RESSOURCES ===================== -->
+<section class="section" id="veille">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Ressources</span>
-      <h2>{{ c.ressources.titre | escape }}</h2>
-      <p class="lead">{{ c.ressources.intro | escape }}</p>
+    <div class="section-head section-head--split">
+      <div>
+        <span class="eyebrow">{{ c.jurisprudence.surtitre | escape }}</span>
+        <h2>{{ c.ressources.titre | escape }}</h2>
+        <p class="lead">{{ c.ressources.intro | escape }}</p>
+      </div>
+      <a href="/ressources.html" class="btn btn--ghost">Tous les articles</a>
     </div>
     <div class="grid grid--3">
       {%- for post in site.posts limit:3 %}
+      {%- assign m = post.date | date: "%-m" | minus: 1 %}
+      {%- assign rub = post.rubrique | default: "fiche" %}
       <a class="post" href="{{ post.url }}">
         <div class="card">
-          {% if post.categorie %}<div class="post__meta">{{ post.categorie | escape }}</div>{% endif %}
+          <div class="post__meta"><span class="badge{% if rub == 'jurisprudence' %} badge--juris{% endif %}">{{ site.data.fr.rubriques[rub] }}</span>{{ post.date | date: "%-d" }} {{ mois[m] }} {{ post.date | date: "%Y" }}</div>
           <h3>{{ post.title | escape }}</h3>
-          <p>{{ post.resume | escape }}</p>
-          <span class="post__more">Lire l'article →</span>
+          {%- if post.resume %}<p>{{ post.resume | escape }}</p>{% endif %}
+          <span class="post__more">Lire →</span>
         </div>
       </a>
       {%- endfor %}
     </div>
-    {%- if site.posts.size > 3 %}
-    <p style="margin-top:32px"><a href="/ressources.html" class="btn btn--ghost">Toutes les ressources</a></p>
-    {%- endif %}
   </div>
 </section>
 
+<!-- ===================== APPEL À L'ACTION ===================== -->
+<section class="container" style="padding-bottom: 104px">
+  <div class="cta">
+    <div>
+      <h2>{{ c.cta.titre | escape }}</h2>
+      <p>{{ c.cta.texte | escape }}</p>
+    </div>
+    <a href="#contact" class="btn btn--green">{{ c.cta.bouton | escape }}</a>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
 <section class="section section--soft" id="contact">
   <div class="container contact">
     <div>
@@ -134,23 +210,31 @@ layout: default
         {%- endif %}
       </ul>
     </div>
-    <form action="https://formspree.io/f/{{ c.contact.formspree_id }}" method="POST">
-      <label for="nom">Nom</label>
-      <input id="nom" name="nom" type="text" required>
-      <label for="email">E-mail</label>
-      <input id="email" name="email" type="email" required>
-      <label for="societe">Société</label>
-      <input id="societe" name="societe" type="text">
-      <label for="sujet">Sujet</label>
-      <select id="sujet" name="sujet">
-        {%- for s in c.contact.sujets %}
-        <option>{{ s | escape }}</option>
-        {%- endfor %}
-      </select>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit" class="btn btn--primary">Envoyer</button>
-      <p class="form-note">Vos données servent uniquement à répondre à votre demande. Voir les <a href="/mentions-legales.html">mentions légales</a>.</p>
-    </form>
+    <div class="form-card">
+      <form action="https://formspree.io/f/{{ c.contact.formspree_id }}" method="POST">
+        <div class="form-row">
+          <div><label for="nom">Nom</label><input id="nom" name="nom" type="text" autocomplete="name" required></div>
+          <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="form-row">
+          <div><label for="societe">Société</label><input id="societe" name="societe" type="text" autocomplete="organization"></div>
+          <div>
+            <label for="profil">Vous êtes</label>
+            <select id="profil" name="profil">
+              {%- for cible in c.cibles.liste %}<option>{{ cible.titre | escape }}</option>{% endfor %}
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <label for="sujet">Sujet</label>
+        <select id="sujet" name="sujet">
+          {%- for s in c.contact.sujets %}<option>{{ s | escape }}</option>{% endfor %}
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit" class="btn btn--primary">Envoyer</button>
+        <p class="form-note">Vos données servent uniquement à répondre à votre demande. Voir les <a href="/mentions-legales.html">mentions légales</a>.</p>
+      </form>
+    </div>
   </div>
 </section>

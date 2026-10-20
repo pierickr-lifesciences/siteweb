@@ -1,0 +1,37 @@
+---
+layout: default
+title: Jurisprudence
+menu: jurisprudence
+description: Analyses de décisions marquantes en propriété intellectuelle pour les industries pharmaceutique et cosmétique.
+---
+{%- comment -%} La liste se met à jour toute seule : il suffit de publier un article avec la rubrique « jurisprudence ». {%- endcomment -%}
+{%- assign c = site.data.contenu -%}
+{%- assign analyses = site.posts | where: "rubrique", "jurisprudence" -%}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">{{ c.jurisprudence.surtitre | escape }}</span>
+    <h1>{{ c.jurisprudence.titre | escape }}</h1>
+    <p class="lead">{{ c.jurisprudence.intro | escape }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {%- if analyses.size > 0 %}
+    <div class="grid grid--3">
+      {%- for post in analyses %}
+      <a class="post" href="{{ post.url }}">
+        <div class="card">
+          <div class="post__meta"><span class="badge badge--juris">{{ post.juridiction | default: "Jurisprudence" | escape }}</span>{{ post.date_decision | escape }}</div>
+          <h3>{{ post.title | escape }}</h3>
+          {%- if post.resume %}<p>{{ post.resume | escape }}</p>{% endif %}
+          <span class="post__more">Lire l'analyse →</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <p class="empty">Les premières analyses arrivent bientôt.</p>
+    {%- endif %}
+  </div>
+</section>

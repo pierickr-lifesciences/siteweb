@@ -8,5 +8,13 @@ if (toggle && nav) {
   });
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('is-open')));
 }
-// Année automatique dans le pied de page
-document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+
+// Filtres de la page Ressources
+const buttons = document.querySelectorAll('.filters button');
+buttons.forEach(btn => btn.addEventListener('click', () => {
+  const f = btn.dataset.filter;
+  buttons.forEach(b => b.setAttribute('aria-pressed', b === btn));
+  document.querySelectorAll('.post[data-rubrique]').forEach(p => {
+    p.style.display = (f === 'tout' || p.dataset.rubrique === f) ? '' : 'none';
+  });
+}));

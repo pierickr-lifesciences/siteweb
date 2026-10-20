@@ -2,10 +2,11 @@
 layout: default
 title: Ressources
 menu: ressources
-description: Articles et fiches pratiques sur la propriété intellectuelle dans l'industrie pharmaceutique et cosmétique.
+description: Analyses de jurisprudence, fiches pratiques et actualités sur la propriété intellectuelle dans les sciences de la vie.
 ---
 {%- comment -%} La liste se met à jour toute seule quand un article est ajouté dans _posts. {%- endcomment -%}
 {%- assign c = site.data.contenu -%}
+{%- assign mois = site.data.fr.mois -%}
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow">Ressources</span>
@@ -16,14 +17,22 @@ description: Articles et fiches pratiques sur la propriété intellectuelle dans
 
 <section class="section">
   <div class="container">
+    <div class="filters" role="group" aria-label="Filtrer les articles">
+      <button type="button" data-filter="tout" aria-pressed="true">Tout</button>
+      {%- for r in site.data.fr.rubriques %}
+      <button type="button" data-filter="{{ r[0] }}" aria-pressed="false">{{ r[1] }}</button>
+      {%- endfor %}
+    </div>
     <div class="grid grid--3">
       {%- for post in site.posts %}
-      <a class="post" href="{{ post.url }}">
+      {%- assign m = post.date | date: "%-m" | minus: 1 %}
+      {%- assign rub = post.rubrique | default: "fiche" %}
+      <a class="post" href="{{ post.url }}" data-rubrique="{{ rub }}">
         <div class="card">
-          {% if post.categorie %}<div class="post__meta">{{ post.categorie | escape }}</div>{% endif %}
+          <div class="post__meta"><span class="badge{% if rub == 'jurisprudence' %} badge--juris{% endif %}">{{ site.data.fr.rubriques[rub] }}</span>{{ post.date | date: "%-d" }} {{ mois[m] }} {{ post.date | date: "%Y" }}</div>
           <h3>{{ post.title | escape }}</h3>
-          <p>{{ post.resume | escape }}</p>
-          <span class="post__more">Lire l'article →</span>
+          {%- if post.resume %}<p>{{ post.resume | escape }}</p>{% endif %}
+          <span class="post__more">Lire →</span>
         </div>
       </a>
       {%- endfor %}
