@@ -22,9 +22,33 @@ content:
       - name: date
         label: Date de publication
         type: date
+      - name: rubrique
+        label: Rubrique
+        type: select
+        options:
+          values:
+            - name: jurisprudence
+              label: Analyse de jurisprudence
+            - name: fiche
+              label: Fiche pratique
+            - name: actualite
+              label: Actualité
       - name: categorie
-        label: Catégorie (ex. Pharma · Fiche pratique)
+        label: Thème (ex. Pharma · CCP)
         type: string
+      - name: juridiction
+        label: "Jurisprudence — juridiction (ex. CJUE, Cour de cassation, JUB)"
+        type: string
+      - name: date_decision
+        label: "Jurisprudence — date de la décision (ex. 25 juillet 2018)"
+        type: string
+      - name: reference
+        label: "Jurisprudence — référence (n° d'affaire, parties)"
+        type: string
+      - name: a_retenir
+        label: "Jurisprudence — points à retenir"
+        type: text
+        list: true
       - name: resume
         label: Résumé (affiché sur la carte de l'article et dans Google)
         type: text
@@ -41,6 +65,11 @@ content:
     path: _data/contenu.yml
     format: yaml
     fields:
+      - name: identite
+        label: Identité
+        type: object
+        fields:
+          - { name: logo, label: "Logo (laisser vide pour le logo par défaut)", type: image }
       - name: accueil
         label: Accueil
         type: object
@@ -91,6 +120,46 @@ content:
               - { name: titre, label: Titre, type: string }
               - { name: intro, label: Introduction, type: text }
               - { name: points, label: Points, type: string, list: true }
+      - name: cibles
+        label: Pour qui (start-up, PME, ETI)
+        type: object
+        fields:
+          - { name: surtitre, label: Petit titre, type: string }
+          - { name: titre, label: Titre, type: string }
+          - { name: intro, label: Introduction, type: text }
+          - name: liste
+            label: Profils
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titre}"
+            fields:
+              - { name: titre, label: Profil, type: string }
+              - { name: texte, label: Texte, type: text }
+              - { name: points, label: Points, type: string, list: true }
+      - name: cabinet
+        label: Le cabinet
+        type: object
+        fields:
+          - { name: surtitre, label: Petit titre, type: string }
+          - { name: titre, label: Titre, type: string }
+          - { name: intro, label: Introduction, type: text }
+          - name: valeurs
+            label: Valeurs
+            type: object
+            list: true
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: texte, label: Texte, type: text }
+          - { name: methode_titre, label: Titre de la méthode, type: string }
+          - name: etapes
+            label: Étapes de la méthode
+            type: object
+            list: true
+            fields:
+              - { name: titre, label: Titre, type: string }
+              - { name: texte, label: Texte, type: text }
       - name: a_propos
         label: À propos
         type: object
@@ -98,6 +167,7 @@ content:
           - { name: nom, label: Nom, type: string }
           - { name: fonction, label: Fonction, type: text }
           - { name: photo, label: Photo (format portrait), type: image }
+          - { name: cadrage_photo, label: "Cadrage de la photo (ex. center 25%)", type: string }
           - { name: paragraphes, label: Paragraphes, type: text, list: true }
           - name: chiffres
             label: Chiffres clés
@@ -106,12 +176,27 @@ content:
             fields:
               - { name: valeur, label: Valeur, type: string }
               - { name: libelle, label: Libellé, type: string }
+      - name: jurisprudence
+        label: Jurisprudence
+        type: object
+        fields:
+          - { name: surtitre, label: Petit titre, type: string }
+          - { name: etiquette, label: Étiquette de la carte en page d'accueil, type: string }
+          - { name: titre, label: Titre de la page, type: string }
+          - { name: intro, label: Introduction, type: text }
       - name: ressources
         label: Ressources
         type: object
         fields:
           - { name: titre, label: Titre, type: string }
           - { name: intro, label: Introduction, type: text }
+      - name: cta
+        label: Bandeau d'appel (avant le contact)
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: texte, label: Texte, type: text }
+          - { name: bouton, label: Bouton, type: string }
       - name: contact
         label: Contact
         type: object
