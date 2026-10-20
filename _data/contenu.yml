@@ -1,3 +1,7 @@
+identite:
+  # Laisser vide pour utiliser le logo par défaut (favicon.svg + nom)
+  logo: ""
+
 accueil:
   surtitre: Propriété intellectuelle · Sciences de la vie
   titre: Protéger et valoriser l'innovation pharmaceutique et cosmétique
@@ -64,11 +68,59 @@ secteurs:
       - Stratégie de marques et de noms de gammes
       - Arbitrage brevet / secret de fabrication
       - Surveillance des contrefaçons et des copies
+cibles:
+  surtitre: Pour qui
+  titre: Une stratégie de PI à la mesure de votre entreprise
+  intro: Start-up, PME ou ETI — les enjeux de propriété intellectuelle évoluent avec votre croissance. L'accompagnement aussi.
+  liste:
+    - titre: Start-up
+      texte: Sécuriser vos premiers actifs et préparer les échanges avec les investisseurs.
+      points:
+        - Premier dépôt et stratégie de priorité
+        - Audit PI en vue d'une levée de fonds
+        - Contrats avec laboratoires et partenaires académiques
+    - titre: PME
+      texte: Structurer un portefeuille cohérent avec un budget maîtrisé.
+      points:
+        - Audit et hiérarchisation du portefeuille
+        - Arbitrage brevet / secret de fabrication
+        - Veille sur les concurrents
+    - titre: ETI
+      texte: Accompagner l'internationalisation et sécuriser les lancements.
+      points:
+        - Liberté d'exploitation avant lancement
+        - Stratégie d'extension internationale
+        - Licences, cessions et partenariats
+
+cabinet:
+  surtitre: Le cabinet
+  titre: Un conseil indépendant, au croisement de la science et du droit
+  intro: LifeSciences IP accompagne les entreprises des sciences de la vie dans la définition et la mise en œuvre de leur stratégie de propriété intellectuelle.
+  valeurs:
+    - titre: Indépendance
+      texte: Des recommandations guidées par vos seuls intérêts.
+    - titre: Proximité
+      texte: Un interlocuteur unique, disponible et réactif.
+    - titre: Pragmatisme
+      texte: Des décisions concrètes, alignées sur votre plan de développement.
+  methode_titre: Une méthode en quatre temps
+  etapes:
+    - titre: Diagnostic
+      texte: Un état des lieux de vos actifs, de vos risques et de vos priorités.
+    - titre: Stratégie
+      texte: Une feuille de route PI alignée sur vos objectifs industriels et financiers.
+    - titre: Mise en œuvre
+      texte: Le pilotage des dépôts, de la veille et des contrats, en coordination avec vos conseils et avocats.
+    - titre: Suivi
+      texte: Des points réguliers pour ajuster la stratégie à votre croissance.
+
 a_propos:
   nom: "[Prénom Nom]"
   fonction: Consultant(e) en propriété intellectuelle spécialisé(e) dans les
     sciences de la vie.
-  photo: /images/nouvelle image PR.jpg
+  photo: /images/portrait.jpg
+  # Cadrage de la photo : 'center 25%' = centré, un peu vers le haut
+  cadrage_photo: center 25%
   paragraphes:
     - "[Parcours en 3–4 phrases : formation scientifique et juridique,
       expériences en laboratoire pharmaceutique, en groupe cosmétique ou en
@@ -83,10 +135,21 @@ a_propos:
       libelle: familles de brevets suivies
     - valeur: FR · EN
       libelle: langues de travail
+jurisprudence:
+  surtitre: Veille jurisprudentielle
+  etiquette: Dernière analyse
+  titre: Analyses de jurisprudence
+  intro: Les décisions qui comptent pour les industries de santé et de la cosmétique, décryptées et mises en perspective pour vos projets.
+
 ressources:
   titre: Comprendre la propriété intellectuelle
   intro: Des articles pour décrypter les règles et l'actualité de la PI dans les
     sciences de la vie.
+cta:
+  titre: Vous développez une innovation ?
+  texte: Parlons de votre stratégie de propriété intellectuelle lors d'un premier échange.
+  bouton: Prendre rendez-vous
+
 contact:
   titre: Parlons de votre projet
   intro: Un premier échange permet de cerner vos besoins et de définir
