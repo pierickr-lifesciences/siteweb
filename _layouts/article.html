@@ -1,22 +1,43 @@
 ---
 layout: default
-menu: ressources
 ---
-{%- assign mois = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign mois = site.data.fr.mois -%}
 {%- assign m = page.date | date: "%-m" | minus: 1 -%}
+{%- assign rub = page.rubrique | default: "fiche" -%}
 <section class="page-hero">
-  <div class="container" style="max-width:780px">
-    <p class="breadcrumb"><a href="/">Accueil</a> › <a href="/ressources.html">Ressources</a></p>
-    {% if page.categorie %}<span class="eyebrow">{{ page.categorie | escape }}</span>{% endif %}
+  <div class="container" style="max-width:800px">
+    <p class="breadcrumb"><a href="/">Accueil</a> › {% if rub == "jurisprudence" %}<a href="/jurisprudence.html">Jurisprudence</a>{% else %}<a href="/ressources.html">Ressources</a>{% endif %}</p>
     <h1>{{ page.title | escape }}</h1>
-    <p class="lead">Publié le {{ page.date | date: "%-d" }} {{ mois[m] }} {{ page.date | date: "%Y" }}{% if page.lecture %} · Lecture {{ page.lecture }} min{% endif %}</p>
+    <div class="article-meta">
+      <span class="badge">{{ site.data.fr.rubriques[rub] }}</span>
+      {%- if page.categorie %}<span>{{ page.categorie | escape }}</span>{% endif %}
+      <span>Publié le {{ page.date | date: "%-d" }} {{ mois[m] }} {{ page.date | date: "%Y" }}</span>
+      {%- if page.lecture %}<span>Lecture {{ page.lecture }} min</span>{% endif %}
+    </div>
   </div>
 </section>
 
 <article class="article">
+  {%- if rub == "jurisprudence" and page.juridiction %}
+  <aside class="decision">
+    <div class="decision__head">La décision</div>
+    <dl>
+      <dt>Juridiction</dt><dd>{{ page.juridiction | escape }}</dd>
+      {%- if page.date_decision %}<dt>Date</dt><dd>{{ page.date_decision | escape }}</dd>{% endif %}
+      {%- if page.reference %}<dt>Référence</dt><dd>{{ page.reference | escape }}</dd>{% endif %}
+    </dl>
+    {%- if page.a_retenir and page.a_retenir.size > 0 %}
+    <div class="takeaways">
+      <strong>À retenir</strong>
+      <ul>{% for point in page.a_retenir %}<li>{{ point | escape }}</li>{% endfor %}</ul>
+    </div>
+    {%- endif %}
+  </aside>
+  {%- endif %}
+
   {{ content }}
 
-  <blockquote><p>Une question sur votre stratégie de propriété intellectuelle ? <a href="/#contact">Prenez contact</a>.</p></blockquote>
+  <blockquote><p>Vous souhaitez mesurer l'impact de cette question sur votre portefeuille ou votre projet ? <a href="/#contact">Prenons rendez-vous</a>.</p></blockquote>
 
   <p class="disclaimer">Cet article est fourni à titre d'information générale et ne constitue pas un avis juridique.</p>
 </article>

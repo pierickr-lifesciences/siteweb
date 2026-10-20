@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title | escape }} — {{ site.title }}{% else %}{{ site.title }} — Propriété intellectuelle en sciences de la vie{% endif %}</title>
+  <title>{% if page.title %}{{ page.title | escape }} — {{ site.title }}{% else %}{{ site.title }} — Conseil en stratégie de propriété intellectuelle, sciences de la vie{% endif %}</title>
   <meta name="description" content="{{ page.resume | default: page.description | default: site.description | strip_html | escape }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ page.resume | default: page.description | default: site.description | strip_html | escape }}">
+  <meta property="og:type" content="website">
+  {%- if c.a_propos.photo and c.a_propos.photo != "" %}
+  <meta property="og:image" content="{{ site.url }}{{ c.a_propos.photo }}">
+  {%- endif %}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -17,16 +23,20 @@
 <header class="header">
   <div class="container header__inner">
     <a href="/" class="logo" aria-label="Accueil {{ site.title }}">
+      {%- if c.identite.logo and c.identite.logo != "" %}
+      <img src="{{ c.identite.logo }}" alt="{{ site.title }}" class="logo__img">
+      {%- else %}
       <img src="/favicon.svg" alt="" class="logo__mark">
       <span class="logo__text">LifeSciences <span>IP</span></span>
+      {%- endif %}
     </a>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav">
       <ul>
+        <li><a href="/#cabinet">Le cabinet</a></li>
         <li><a href="/#expertise">Expertise</a></li>
-        <li><a href="/#secteurs">Secteurs</a></li>
-        <li><a href="/ressources.html"{% if page.menu == "ressources" or page.layout == "article" %} aria-current="page"{% endif %}>Ressources</a></li>
-        <li><a href="/#a-propos">À propos</a></li>
+        <li><a href="/jurisprudence.html"{% if page.menu == "jurisprudence" or page.rubrique == "jurisprudence" %} aria-current="page"{% endif %}>Jurisprudence</a></li>
+        <li><a href="/ressources.html"{% if page.menu == "ressources" or page.layout == "article" and page.rubrique != "jurisprudence" %} aria-current="page"{% endif %}>Ressources</a></li>
         <li><a href="/#contact" class="btn btn--primary">Contact</a></li>
       </ul>
     </nav>
@@ -47,16 +57,20 @@
       <div>
         <h4>Navigation</h4>
         <ul>
+          <li><a href="/#cabinet">Le cabinet</a></li>
           <li><a href="/#expertise">Expertise</a></li>
-          <li><a href="/#secteurs">Secteurs</a></li>
+          <li><a href="/jurisprudence.html">Jurisprudence</a></li>
           <li><a href="/ressources.html">Ressources</a></li>
-          <li><a href="/#contact">Contact</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:{{ c.contact.email }}">{{ c.contact.email }}</a></li>
+          {%- if c.contact.linkedin and c.contact.linkedin != "" %}
+          <li><a href="{{ c.contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>
+          {%- endif %}
+          <li><a href="/#contact">Prendre rendez-vous</a></li>
           <li><a href="/mentions-legales.html">Mentions légales</a></li>
         </ul>
       </div>
