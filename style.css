@@ -136,8 +136,8 @@ p { margin: 0 0 1em; }
 .checklist li { position: relative; padding-left: 26px; margin-bottom: 9px; }
 .checklist li::before { content: ""; position: absolute; left: 0; top: .45em; width: 14px; height: 14px; border-radius: 50%; background: var(--green-soft); box-shadow: inset 0 0 0 4px var(--green); }
 
-/* ---------- Cabinet ---------- */
-.cabinet { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: start; }
+/* ---------- À propos ---------- */
+.profil { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: start; }
 .portrait { position: sticky; top: 104px; }
 .portrait__img { aspect-ratio: 4/5; border-radius: 22px; overflow: hidden; background: var(--bg-soft); display: grid; place-items: center; color: var(--muted); }
 .portrait__img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
@@ -271,7 +271,7 @@ form .btn { border: 0; cursor: pointer; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
-  .hero__grid, .cabinet, .contact { grid-template-columns: 1fr; gap: 48px; }
+  .hero__grid, .profil, .contact { grid-template-columns: 1fr; gap: 48px; }
   .portrait { max-width: 420px; position: relative; top: 0; }
   .audiences, .grid--3 { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }

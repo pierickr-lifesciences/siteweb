@@ -20,7 +20,7 @@ Les photos s'ajoutent avec le champ Image (elles vont dans le dossier `images/`)
 
 | Fichier | Contenu | On y touche ? |
 |---|---|---|
-| `_data/contenu.yml` | Tous les textes de l'accueil (dont « Pour qui », « Le cabinet », bandeau d'appel) | ✅ Oui |
+| `_data/contenu.yml` | Tous les textes de l'accueil (dont « Pour qui », « À propos », bandeau d'appel) | ✅ Oui |
 | `_posts/` | Un fichier par article (`AAAA-MM-JJ-titre.md`) | ✅ Oui |
 | `mentions-legales.md` | Mentions légales | ✅ Oui |
 | `images/` | Photos | ✅ Oui |

@@ -70,10 +70,10 @@ layout: default
   </div>
 </section>
 
-<!-- ===================== LE CABINET ===================== -->
-<section class="section section--soft" id="cabinet">
+<!-- ===================== À PROPOS ===================== -->
+<section class="section section--soft" id="a-propos">
   <div class="container">
-    <div class="cabinet">
+    <div class="profil">
       <div class="portrait">
         <div class="portrait__img">
           {%- if c.a_propos.photo and c.a_propos.photo != "" -%}
@@ -88,16 +88,16 @@ layout: default
         </div>
       </div>
       <div>
-        <span class="eyebrow">{{ c.cabinet.surtitre | escape }}</span>
-        <h2>{{ c.cabinet.titre | escape }}</h2>
-        <p class="lead">{{ c.cabinet.intro | escape }}</p>
+        <span class="eyebrow">{{ c.profil.surtitre | escape }}</span>
+        <h2>{{ c.profil.titre | escape }}</h2>
+        <p class="lead">{{ c.profil.intro | escape }}</p>
         <div class="bio">
           {%- for p in c.a_propos.paragraphes %}
           <p>{{ p | escape }}</p>
           {%- endfor %}
         </div>
         <div class="values">
-          {%- for v in c.cabinet.valeurs %}
+          {%- for v in c.profil.valeurs %}
           <div class="value"><h3>{{ v.titre | escape }}</h3><p>{{ v.texte | escape }}</p></div>
           {%- endfor %}
         </div>
@@ -109,9 +109,9 @@ layout: default
       </div>
     </div>
 
-    <h3 class="steps-title">{{ c.cabinet.methode_titre | escape }}</h3>
+    <h3 class="steps-title">{{ c.profil.methode_titre | escape }}</h3>
     <div class="steps">
-      {%- for e in c.cabinet.etapes %}
+      {%- for e in c.profil.etapes %}
       <div class="step"><h3>{{ e.titre | escape }}</h3><p>{{ e.texte | escape }}</p></div>
       {%- endfor %}
     </div>
@@ -225,7 +225,7 @@ layout: default
       <script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
       <noscript><p><a href="https://tally.so/r/{{ c.contact.tally_id }}">Ouvrir le formulaire de contact</a></p></noscript>
       {%- else %}
-      <p>Écrivez-nous directement :</p>
+      <p>Écrivez-moi directement :</p>
       <a class="btn btn--primary" href="mailto:{{ c.contact.email }}?subject=Demande%20de%20contact%20-%20site%20LifeSciences%20IP">Envoyer un e-mail</a>
       {%- endif %}
     </div>

@@ -141,8 +141,8 @@ content:
               - { name: titre, label: Profil, type: string }
               - { name: texte, label: Texte, type: text }
               - { name: points, label: Points, type: string, list: true }
-      - name: cabinet
-        label: Le cabinet
+      - name: profil
+        label: Présentation (titre et méthode)
         type: object
         fields:
           - { name: surtitre, label: Petit titre, type: string }
