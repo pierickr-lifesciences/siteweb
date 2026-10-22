@@ -92,9 +92,8 @@ cibles:
 profil:
   surtitre: À propos
   titre: Un consultant indépendant, au croisement de la science et du droit
-  intro: J'accompagne les entreprises des sciences de la vie dans la
-    définition et la mise en œuvre de leur stratégie de propriété
-    intellectuelle.
+  intro: J'accompagne les entreprises des sciences de la vie dans la définition et
+    la mise en œuvre de leur stratégie de propriété intellectuelle.
   valeurs:
     - titre: Indépendance
       texte: Des recommandations guidées par vos seuls intérêts.
@@ -111,7 +110,10 @@ profil:
         financiers.
     - titre: Mise en œuvre
       texte: Le pilotage des dépôts, de la veille et des contrats, en coordination
-        avec vos conseils et avocats.
+        avec vos conseils et avocats. Je peux également vous mettre en contact
+        avec des conseils en PI et avocats spécialisés en PI et coordonner les
+        actions de protections et défense de vos actifs de propriété
+        intellectuelle
     - titre: Suivi
       texte: Des points réguliers pour ajuster la stratégie à votre croissance.
 a_propos:
@@ -147,8 +149,8 @@ publications:
     intellectuelle dans les sciences de la vie.
 ressources:
   titre: Comprendre la propriété intellectuelle
-  intro: Analyses de jurisprudence, revue de presse, fiches pratiques et actualités
-    pour décrypter les règles de la PI dans les sciences de la vie.
+  intro: Analyses de jurisprudence, revue de presse, fiches pratiques et
+    actualités pour décrypter les règles de la PI dans les sciences de la vie.
 cta:
   titre: Suivez mes publications
   texte: Décisions marquantes, revue de presse et actualités de la PI dans les
