@@ -209,8 +209,7 @@ content:
           - { name: email, label: E-mail, type: string }
           - { name: telephone, label: Téléphone, type: string }
           - { name: linkedin, label: Lien LinkedIn, type: string }
-          - { name: formspree_id, label: Identifiant Formspree, type: string }
-          - { name: sujets, label: Sujets proposés dans le formulaire, type: string, list: true }
+          - { name: tally_id, label: "Identifiant du formulaire Tally (ex. mRoDv3, à la fin du lien tally.so/r/…)", type: string }
       - name: pied_de_page
         label: Pied de page
         type: object
