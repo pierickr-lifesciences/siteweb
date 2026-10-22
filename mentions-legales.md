@@ -1,7 +1,6 @@
 ---
 title: Mentions légales
 ---
-
 ## Éditeur du site
 
 [Prénom Nom] — [Entrepreneur individuel / dénomination de la société]  
@@ -28,7 +27,7 @@ Les contenus publiés sur ce site sont fournis à titre d'information générale
 
 ## Données personnelles
 
-Les informations transmises via le formulaire de contact (nom, e-mail, société, message) sont utilisées uniquement pour répondre à votre demande. Elles sont transmises par l'intermédiaire du service Formspree et ne sont ni cédées ni utilisées à des fins commerciales. Elles sont conservées [durée, par ex. 3 ans] à compter du dernier échange.
+Les informations transmises via le formulaire de contact (nom, e-mail, société, message) sont utilisées uniquement pour répondre à votre demande. Elles sont transmises par l'intermédiaire du service Tally (société belge, données hébergées dans l’Union européenne) et ne sont ni cédées ni utilisées à des fins commerciales. Elles sont conservées 3 ans à compter de votre dernier contact, sauf si une relation contractuelle s’établit, auquel cas elles sont conservées pendant la durée de celle-ci augmentée des délais de prescription légaux.
 
 Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition, que vous pouvez exercer en écrivant à [contact@lifesciences-ip.com](mailto:contact@lifesciences-ip.com). Vous pouvez également introduire une réclamation auprès de la CNIL.
 
