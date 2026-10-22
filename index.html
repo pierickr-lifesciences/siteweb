@@ -25,7 +25,7 @@ layout: default
       <h1>{{ c.accueil.titre | escape }}</h1>
       <p class="lead">{{ c.accueil.accroche | escape }}</p>
       <div class="hero__actions">
-        <a href="#contact" class="btn btn--green">{{ c.accueil.bouton_principal | escape }}</a>
+        <a href="/jurisprudence.html" class="btn btn--green">{{ c.accueil.bouton_principal | escape }}</a>
         <a href="/ressources.html" class="btn btn--light">{{ c.accueil.bouton_secondaire | escape }}</a>
       </div>
       <ul class="hero__tags">
@@ -45,6 +45,37 @@ layout: default
       <span class="feature__more">{% if une.rubrique == "jurisprudence" %}Lire l'analyse{% else %}Lire l'article{% endif %} →</span>
     </a>
     {%- endif %}
+  </div>
+</section>
+
+<!-- ===================== MES PUBLICATIONS ===================== -->
+<section class="section section--soft" id="veille">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="eyebrow">{{ c.publications.surtitre | escape }}</span>
+        <h2>{{ c.publications.titre | escape }}</h2>
+        <p class="lead">{{ c.publications.intro | escape }}</p>
+      </div>
+      <div class="section-head__links">
+        <a href="/jurisprudence.html" class="btn btn--ghost">Jurisprudence</a>
+        <a href="/ressources.html" class="btn btn--ghost">Toutes les publications</a>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      {%- for post in site.posts limit:6 %}
+      {%- assign m = post.date | date: "%-m" | minus: 1 %}
+      {%- assign rub = post.rubrique | default: "fiche" %}
+      <a class="post" href="{{ post.url }}">
+        <div class="card">
+          <div class="post__meta"><span class="badge{% if rub == 'jurisprudence' %} badge--juris{% endif %}">{{ site.data.fr.rubriques[rub] }}</span>{{ post.date | date: "%-d" }} {{ mois[m] }} {{ post.date | date: "%Y" }}</div>
+          <h3>{{ post.title | escape }}</h3>
+          {%- if post.resume %}<p>{{ post.resume | escape }}</p>{% endif %}
+          <span class="post__more">Lire →</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
@@ -161,44 +192,18 @@ layout: default
   </div>
 </section>
 
-<!-- ===================== VEILLE & RESSOURCES ===================== -->
-<section class="section" id="veille">
-  <div class="container">
-    <div class="section-head section-head--split">
-      <div>
-        <span class="eyebrow">{{ c.jurisprudence.surtitre | escape }}</span>
-        <h2>{{ c.ressources.titre | escape }}</h2>
-        <p class="lead">{{ c.ressources.intro | escape }}</p>
-      </div>
-      <a href="/ressources.html" class="btn btn--ghost">Tous les articles</a>
-    </div>
-    <div class="grid grid--3">
-      {%- for post in site.posts limit:3 %}
-      {%- assign m = post.date | date: "%-m" | minus: 1 %}
-      {%- assign rub = post.rubrique | default: "fiche" %}
-      <a class="post" href="{{ post.url }}">
-        <div class="card">
-          <div class="post__meta"><span class="badge{% if rub == 'jurisprudence' %} badge--juris{% endif %}">{{ site.data.fr.rubriques[rub] }}</span>{{ post.date | date: "%-d" }} {{ mois[m] }} {{ post.date | date: "%Y" }}</div>
-          <h3>{{ post.title | escape }}</h3>
-          {%- if post.resume %}<p>{{ post.resume | escape }}</p>{% endif %}
-          <span class="post__more">Lire →</span>
-        </div>
-      </a>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- ===================== APPEL À L'ACTION ===================== -->
+<!-- ===================== SUIVRE LES PUBLICATIONS ===================== -->
+{%- if c.contact.linkedin and c.contact.linkedin != "" %}
 <section class="container" style="padding-bottom: 104px">
   <div class="cta">
     <div>
       <h2>{{ c.cta.titre | escape }}</h2>
       <p>{{ c.cta.texte | escape }}</p>
     </div>
-    <a href="#contact" class="btn btn--green">{{ c.cta.bouton | escape }}</a>
+    <a href="{{ c.contact.linkedin }}" target="_blank" rel="noopener" class="btn btn--green">{{ c.cta.bouton | escape }}</a>
   </div>
 </section>
+{%- endif %}
 
 <!-- ===================== CONTACT ===================== -->
 <section class="section section--soft" id="contact">

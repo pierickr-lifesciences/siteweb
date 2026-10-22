@@ -10,7 +10,7 @@ Le site est généré automatiquement par GitHub Pages. Les textes sont séparé
    - **Textes du site** : textes de l'accueil, services, à propos, coordonnées ;
    - **Articles** : bouton **Add an entry** pour écrire un nouvel article. Choisir la **Rubrique** :
      « Analyse de jurisprudence » (affichée en une de l'accueil et sur la page Jurisprudence,
-     avec les champs juridiction / date / référence / points à retenir), « Fiche pratique » ou « Actualité » ;
+     avec les champs juridiction / date / référence / points à retenir), « Revue de presse », « Fiche pratique » ou « Actualité » ;
    - **Mentions légales**.
 4. Cliquer sur **Save**. Le site est à jour environ 1 minute plus tard.
 

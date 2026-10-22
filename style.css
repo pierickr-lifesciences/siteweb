@@ -54,6 +54,7 @@ p { margin: 0 0 1em; }
 .lead { font-size: 1.15rem; color: var(--muted); max-width: 62ch; }
 .section-head { max-width: 760px; margin-bottom: 56px; }
 .section-head--split { max-width: none; display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.section-head__links { display: flex; gap: 12px; flex-wrap: wrap; }
 .section-head--split > div { max-width: 680px; }
 
 /* ---------- Boutons ---------- */

@@ -34,6 +34,8 @@ content:
               label: Analyse de jurisprudence
             - name: fiche
               label: Fiche pratique
+            - name: revue_presse
+              label: Revue de presse
             - name: actualite
               label: Actualité
       - name: categorie
@@ -187,6 +189,13 @@ content:
           - { name: etiquette, label: Étiquette de la carte en page d'accueil, type: string }
           - { name: titre, label: Titre de la page, type: string }
           - { name: intro, label: Introduction, type: text }
+      - name: publications
+        label: Publications (accueil)
+        type: object
+        fields:
+          - { name: surtitre, label: Petit titre, type: string }
+          - { name: titre, label: Titre, type: string }
+          - { name: intro, label: Introduction, type: text }
       - name: ressources
         label: Ressources
         type: object
@@ -194,7 +203,7 @@ content:
           - { name: titre, label: Titre, type: string }
           - { name: intro, label: Introduction, type: text }
       - name: cta
-        label: Bandeau d'appel (avant le contact)
+        label: Bandeau « Suivre sur LinkedIn » (avant le contact)
         type: object
         fields:
           - { name: titre, label: Titre, type: string }
