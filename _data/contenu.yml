@@ -89,10 +89,10 @@ cibles:
         - Liberté d'exploitation avant lancement
         - Stratégie d'extension internationale
         - Licences, cessions et partenariats
-cabinet:
-  surtitre: Le cabinet
-  titre: Un conseil indépendant, au croisement de la science et du droit
-  intro: LifeSciences IP accompagne les entreprises des sciences de la vie dans la
+profil:
+  surtitre: À propos
+  titre: Un consultant indépendant, au croisement de la science et du droit
+  intro: J'accompagne les entreprises des sciences de la vie dans la
     définition et la mise en œuvre de leur stratégie de propriété
     intellectuelle.
   valeurs:
@@ -122,8 +122,8 @@ a_propos:
   cadrage_photo: center 25%
   paragraphes:
     - "[Parcours en 3–4 phrases : formation scientifique et juridique,
-      expériences en laboratoire pharmaceutique, en groupe cosmétique ou en
-      cabinet, ce qui motive l'activité de conseil.]"
+      expériences en laboratoire pharmaceutique ou en groupe cosmétique, ce qui
+      motive l'activité de conseil.]"
     - "[Approche : par exemple, un interlocuteur unique, une double culture
       scientifique et juridique, des recommandations opérationnelles plutôt que
       théoriques.]"
