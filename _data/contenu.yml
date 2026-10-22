@@ -4,7 +4,6 @@ accueil:
   accroche: Accompagnement des PME, ETI et start-up dans leur stratégie de
     propriété intellectuelle — des brevets aux marques, de la veille
     concurrentielle à la liberté d'exploitation.
-  bouton_principal: Prendre rendez-vous
   bouton_secondaire: Lire les ressources
   mots_cles:
     - Brevets
@@ -92,9 +91,8 @@ cibles:
 profil:
   surtitre: À propos
   titre: Un consultant indépendant, au croisement de la science et du droit
-  intro: J'accompagne les entreprises des sciences de la vie dans la
-    définition et la mise en œuvre de leur stratégie de propriété
-    intellectuelle.
+  intro: J'accompagne les entreprises des sciences de la vie dans la définition et
+    la mise en œuvre de leur stratégie de propriété intellectuelle.
   valeurs:
     - titre: Indépendance
       texte: Des recommandations guidées par vos seuls intérêts.
