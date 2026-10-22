@@ -4,7 +4,8 @@ accueil:
   accroche: Accompagnement des PME, ETI et start-up dans leur stratégie de
     propriété intellectuelle — des brevets aux marques, de la veille
     concurrentielle à la liberté d'exploitation.
-  bouton_secondaire: Lire les ressources
+  bouton_principal: Analyses de jurisprudence
+  bouton_secondaire: Toutes les publications
   mots_cles:
     - Brevets
     - Marques
@@ -91,8 +92,9 @@ cibles:
 profil:
   surtitre: À propos
   titre: Un consultant indépendant, au croisement de la science et du droit
-  intro: J'accompagne les entreprises des sciences de la vie dans la définition et
-    la mise en œuvre de leur stratégie de propriété intellectuelle.
+  intro: J'accompagne les entreprises des sciences de la vie dans la
+    définition et la mise en œuvre de leur stratégie de propriété
+    intellectuelle.
   valeurs:
     - titre: Indépendance
       texte: Des recommandations guidées par vos seuls intérêts.
@@ -138,15 +140,20 @@ jurisprudence:
   titre: Analyses de jurisprudence
   intro: Les décisions qui comptent pour les industries de santé et de la
     cosmétique, décryptées et mises en perspective pour vos projets.
+publications:
+  surtitre: Publications
+  titre: Mes dernières analyses et actualités
+  intro: Analyses de jurisprudence, revue de presse et actualités de la propriété
+    intellectuelle dans les sciences de la vie.
 ressources:
   titre: Comprendre la propriété intellectuelle
-  intro: Des articles pour décrypter les règles et l'actualité de la PI dans les
-    sciences de la vie.
+  intro: Analyses de jurisprudence, revue de presse, fiches pratiques et actualités
+    pour décrypter les règles de la PI dans les sciences de la vie.
 cta:
-  titre: Vous développez une innovation ?
-  texte: Parlons de votre stratégie de propriété intellectuelle lors d'un premier
-    échange.
-  bouton: Prendre rendez-vous
+  titre: Suivez mes publications
+  texte: Décisions marquantes, revue de presse et actualités de la PI dans les
+    sciences de la vie, à retrouver au fil de l'eau sur LinkedIn.
+  bouton: Me suivre sur LinkedIn
 contact:
   titre: Parlons de votre projet
   intro: Un premier échange permet de cerner vos besoins et de définir
