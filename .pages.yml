@@ -22,6 +22,9 @@ content:
       - name: date
         label: Date de publication
         type: date
+      - name: a_la_une
+        label: "À la une (mettre en avant en haut de l'accueil — sinon la dernière analyse est affichée automatiquement)"
+        type: boolean
       - name: rubrique
         label: Rubrique
         type: select
