@@ -7,8 +7,15 @@ layout: default
 {%- endcomment -%}
 {%- assign c = site.data.contenu -%}
 {%- assign mois = site.data.fr.mois -%}
+{%- comment -%}
+  Article mis en avant en haut de l'accueil :
+  1. le plus récent des articles cochés « À la une » dans Pages CMS ;
+  2. sinon, la plus récente analyse de jurisprudence ;
+  3. sinon, le dernier article publié.
+{%- endcomment -%}
+{%- assign choisis = site.posts | where: "a_la_une", true -%}
 {%- assign analyses = site.posts | where: "rubrique", "jurisprudence" -%}
-{%- assign une = analyses.first | default: site.posts.first -%}
+{%- assign une = choisis.first | default: analyses.first | default: site.posts.first -%}
 
 <!-- ===================== ACCUEIL ===================== -->
 <section class="hero">
@@ -29,13 +36,13 @@ layout: default
     {%- if une %}
     {%- assign m = une.date | date: "%-m" | minus: 1 %}
     <a class="feature" href="{{ une.url }}">
-      <span class="feature__label">{% if une.rubrique == "jurisprudence" %}{{ c.jurisprudence.etiquette | default: "Dernière analyse" | escape }}{% else %}Dernier article{% endif %}</span>
+      <span class="feature__label">{% if une.a_la_une %}À la une{% elsif une.rubrique == "jurisprudence" %}{{ c.jurisprudence.etiquette | default: "Dernière analyse" | escape }}{% else %}Dernier article{% endif %}</span>
       <div class="feature__court">
         {%- if une.juridiction %}{{ une.juridiction | escape }}{% if une.date_decision %} · {{ une.date_decision | escape }}{% endif %}{% else %}{{ une.date | date: "%-d" }} {{ mois[m] }} {{ une.date | date: "%Y" }}{% endif -%}
       </div>
       <h3>{{ une.title | escape }}</h3>
       {%- if une.resume %}<p>{{ une.resume | escape }}</p>{% endif %}
-      <span class="feature__more">Lire l'analyse →</span>
+      <span class="feature__more">{% if une.rubrique == "jurisprudence" %}Lire l'analyse{% else %}Lire l'article{% endif %} →</span>
     </a>
     {%- endif %}
   </div>
