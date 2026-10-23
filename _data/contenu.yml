@@ -1,3 +1,5 @@
+identite:
+  maintenance: true
 accueil:
   surtitre: Propriété intellectuelle · Sciences de la vie
   titre: Protéger et valoriser l'innovation pharmaceutique et cosmétique
@@ -89,33 +91,6 @@ cibles:
         - Liberté d'exploitation avant lancement
         - Stratégie d'extension internationale
         - Licences, cessions et partenariats
-profil:
-  surtitre: À propos
-  titre: Un consultant indépendant, au croisement de la science et du droit
-  intro: J'accompagne les entreprises des sciences de la vie dans la définition et
-    la mise en œuvre de leur stratégie de propriété intellectuelle.
-  valeurs:
-    - titre: Indépendance
-      texte: Des recommandations guidées par vos seuls intérêts.
-    - titre: Proximité
-      texte: Un interlocuteur unique, disponible et réactif.
-    - titre: Pragmatisme
-      texte: Des décisions concrètes, alignées sur votre plan de développement.
-  methode_titre: Une méthode en quatre temps
-  etapes:
-    - titre: Diagnostic
-      texte: Un état des lieux de vos actifs, de vos risques et de vos priorités.
-    - titre: Stratégie
-      texte: Une feuille de route PI alignée sur vos objectifs industriels et
-        financiers.
-    - titre: Mise en œuvre
-      texte: Le pilotage des dépôts, de la veille et des contrats, en coordination
-        avec vos conseils et avocats. Je peux également vous mettre en contact
-        avec des conseils en PI et avocats spécialisés en PI et coordonner les
-        actions de protections et défense de vos actifs de propriété
-        intellectuelle
-    - titre: Suivi
-      texte: Des points réguliers pour ajuster la stratégie à votre croissance.
 a_propos:
   nom: "[Prénom Nom]"
   fonction: Consultant(e) en propriété intellectuelle spécialisé(e) dans les
@@ -142,11 +117,6 @@ jurisprudence:
   titre: Analyses de jurisprudence
   intro: Les décisions qui comptent pour les industries de santé et de la
     cosmétique, décryptées et mises en perspective pour vos projets.
-publications:
-  surtitre: Publications
-  titre: Mes dernières analyses et actualités
-  intro: Analyses de jurisprudence, revue de presse et actualités de la propriété
-    intellectuelle dans les sciences de la vie.
 ressources:
   titre: Comprendre la propriété intellectuelle
   intro: Analyses de jurisprudence, revue de presse, fiches pratiques et
