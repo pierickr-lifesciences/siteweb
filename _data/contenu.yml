@@ -93,18 +93,23 @@ cibles:
         - Stratégie d'extension internationale
         - Licences, cessions et partenariats
 a_propos:
-  nom: "[Prénom Nom]"
+  nom: Pierick Rousseau
   fonction: Consultant en propriété intellectuelle spécialisé dans les sciences de
     la vie.
   photo: /images/portrait.jpg
   cadrage_photo: center 25%
   paragraphes:
-    - "[Parcours en 3–4 phrases : formation scientifique et juridique,
-      expériences en laboratoire pharmaceutique ou en groupe cosmétique, ce qui
-      motive l'activité de conseil.]"
-    - "[Approche : par exemple, un interlocuteur unique, une double culture
-      scientifique et juridique, des recommandations opérationnelles plutôt que
-      théoriques.]"
+    - " De formation ingénieur Chimiste je me suis tourné vers le droit des
+      brevets en étudiant au CEIPI puis ai passé les examens de qualifications
+      de l'INPI et de l'OEB. J'ai passé l'ensemble de ma carrière dans
+      l'industrie pharmaceutique et cosmétique d'abord chez Sanofi ( et
+      prédécesseurs ( Aventis, HMR, Roussel Uclaf) puis en tant que directeur
+      propriété intellectuelle du groupe Pierre Fabre. E"
+    - Ensuite en tant que consultant, mon objectif est d'aider les PME, ETI et
+      Start-up à enclencher une approche de valorisation de leur R&D par les
+      outils de PI et donc leur permettre de bénéficier de mes 30 ans
+      d'expériences dans le domaine et leur permettre d'avoir une approche
+      concrète et connaitre toute les clés pour une PI orientée business.
   chiffres:
     - valeur: "[XX]"
       libelle: ans d'expérience
