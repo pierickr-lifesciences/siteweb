@@ -94,8 +94,8 @@ cibles:
         - Licences, cessions et partenariats
 a_propos:
   nom: "[Prénom Nom]"
-  fonction: Consultant(e) en propriété intellectuelle spécialisé(e) dans les
-    sciences de la vie.
+  fonction: Consultant en propriété intellectuelle spécialisé(e) dans les sciences
+    de la vie.
   photo: /images/portrait.jpg
   cadrage_photo: center 25%
   paragraphes:
