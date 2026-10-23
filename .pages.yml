@@ -34,8 +34,6 @@ content:
               label: Analyse de jurisprudence
             - name: fiche
               label: Fiche pratique
-            - name: revue_presse
-              label: Revue de presse
             - name: actualite
               label: Actualité
       - name: categorie
@@ -74,6 +72,7 @@ content:
         label: Identité
         type: object
         fields:
+          - { name: maintenance, label: "Site en construction (masque le site au public et à Google). Pour le voir quand même : ajouter ?apercu=oui à l'adresse", type: boolean }
           - { name: logo, label: "Logo (laisser vide pour le logo par défaut)", type: image }
       - name: accueil
         label: Accueil
@@ -143,8 +142,8 @@ content:
               - { name: titre, label: Profil, type: string }
               - { name: texte, label: Texte, type: text }
               - { name: points, label: Points, type: string, list: true }
-      - name: profil
-        label: Présentation (titre et méthode)
+      - name: cabinet
+        label: Le cabinet
         type: object
         fields:
           - { name: surtitre, label: Petit titre, type: string }
@@ -189,13 +188,6 @@ content:
           - { name: etiquette, label: Étiquette de la carte en page d'accueil, type: string }
           - { name: titre, label: Titre de la page, type: string }
           - { name: intro, label: Introduction, type: text }
-      - name: publications
-        label: Publications (accueil)
-        type: object
-        fields:
-          - { name: surtitre, label: Petit titre, type: string }
-          - { name: titre, label: Titre, type: string }
-          - { name: intro, label: Introduction, type: text }
       - name: ressources
         label: Ressources
         type: object
@@ -203,7 +195,7 @@ content:
           - { name: titre, label: Titre, type: string }
           - { name: intro, label: Introduction, type: text }
       - name: cta
-        label: Bandeau « Suivre sur LinkedIn » (avant le contact)
+        label: Bandeau d'appel (avant le contact)
         type: object
         fields:
           - { name: titre, label: Titre, type: string }
