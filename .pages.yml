@@ -72,7 +72,8 @@ content:
         label: Identité
         type: object
         fields:
-          - { name: maintenance, label: "Site en construction (masque le site au public et à Google). Pour le voir quand même : ajouter ?apercu=oui à l'adresse", type: boolean }
+          - { name: maintenance, label: "Site en construction (masque le site au public et à Google). Pour le voir quand même : ajouter ?apercu=VOTRE_CODE à l'adresse", type: boolean }
+          - { name: code_apercu_hash, label: "Empreinte du code d'aperçu (à générer sur www.lifesciences-ip.com/code-apercu.html — ne jamais mettre le code lui-même ici)", type: string }
           - { name: logo, label: "Logo (laisser vide pour le logo par défaut)", type: image }
       - name: accueil
         label: Accueil
