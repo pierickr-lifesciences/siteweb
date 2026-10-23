@@ -21,12 +21,23 @@
   <!-- MODE CONSTRUCTION : site masqué au public et à Google (case à cocher dans Pages CMS → Textes du site → Identité) -->
   <meta name="robots" content="noindex, nofollow">
   <script>
-    try {
-      var q = location.search;
-      if (q.indexOf('apercu=oui') > -1) localStorage.setItem('lsip-apercu', '1');
-      if (q.indexOf('apercu=non') > -1) localStorage.removeItem('lsip-apercu');
-      if (localStorage.getItem('lsip-apercu') === '1') document.documentElement.classList.add('apercu');
-    } catch (e) {}
+    /* Aperçu réservé : ouvrir le site avec ?apercu=VOTRE_CODE (empreinte du code définie dans Pages CMS). */
+    (function () {
+      var H = "{{ c.identite.code_apercu_hash | strip | downcase }}";
+      var root = document.documentElement;
+      try {
+        var p = new URLSearchParams(location.search), code = p.get('apercu');
+        if (code === 'non') { localStorage.removeItem('lsip-apercu'); history.replaceState(null, '', location.pathname); return; }
+        if (H && localStorage.getItem('lsip-apercu') === H) root.classList.add('apercu');
+        if (H && code && window.crypto && crypto.subtle) {
+          crypto.subtle.digest('SHA-256', new TextEncoder().encode(code)).then(function (buf) {
+            var h = Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+            if (h === H) { localStorage.setItem('lsip-apercu', h); root.classList.add('apercu'); }
+            history.replaceState(null, '', location.pathname + location.hash);
+          });
+        }
+      } catch (e) {}
+    })();
   </script>
   <style>
     html:not(.apercu) body > *:not(.construction) { display: none !important; }
