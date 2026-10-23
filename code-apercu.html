@@ -1,0 +1,57 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Code d'aperçu</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: #0a1f3f; color: #dbe6f5; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    .box { width: 100%; max-width: 560px; background: #fff; color: #14233b; border-radius: 16px; padding: 32px; }
+    h1 { font-size: 1.4rem; margin: 0 0 .5em; color: #0f2b55; }
+    p { margin: 0 0 1em; color: #5a6a80; font-size: .95rem; }
+    label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; }
+    input, textarea { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #e1e8f1; border-radius: 10px; font: inherit; margin-bottom: 16px; background: #f4f7fb; }
+    textarea { font-family: ui-monospace, Menlo, monospace; font-size: .85rem; height: 70px; resize: none; }
+    button { background: #0b63c5; color: #fff; border: 0; border-radius: 999px; padding: 12px 22px; font: inherit; font-weight: 600; cursor: pointer; }
+    ol { padding-left: 1.2em; font-size: .92rem; color: #14233b; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Générer l'empreinte du code d'aperçu</h1>
+    <p>Le calcul se fait uniquement dans votre navigateur : le code n'est envoyé nulle part.</p>
+    <label for="code">Choisissez un code (au moins 8 caractères, difficile à deviner)</label>
+    <input id="code" type="text" autocomplete="off" spellcheck="false" placeholder="ex. Lsip-2026-k7Qz">
+    <label for="hash">Empreinte à copier dans Pages CMS</label>
+    <textarea id="hash" readonly></textarea>
+    <button id="copy" type="button">Copier l'empreinte</button>
+    <ol>
+      <li>Collez l'empreinte dans <strong>Pages CMS → Textes du site → Identité → Empreinte du code d'aperçu</strong>, puis Save.</li>
+      <li>Notez le code lui-même dans un endroit sûr (gestionnaire de mots de passe).</li>
+      <li>Pour voir le site en construction : ouvrez <strong>www.lifesciences-ip.com/?apercu=VOTRE_CODE</strong> une fois sur chaque appareil.</li>
+    </ol>
+  </div>
+  <script>
+    var code = document.getElementById('code'), out = document.getElementById('hash');
+    code.addEventListener('input', function () {
+      var v = code.value;
+      if (!v) { out.value = ''; return; }
+      if (!(window.crypto && crypto.subtle)) { out.value = 'Ouvrez cette page en https:// pour générer l\'empreinte.'; return; }
+      crypto.subtle.digest('SHA-256', new TextEncoder().encode(v)).then(function (buf) {
+        if (code.value !== v) return;
+        out.value = Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+      });
+    });
+    document.getElementById('copy').addEventListener('click', function () {
+      out.select();
+      if (navigator.clipboard) navigator.clipboard.writeText(out.value); else document.execCommand('copy');
+      this.textContent = 'Copié ✓';
+    });
+  </script>
+</body>
+</html>
