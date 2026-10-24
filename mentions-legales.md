@@ -3,10 +3,10 @@ title: Mentions légales
 ---
 ## Éditeur du site
 
-[Prénom Nom] — [Entrepreneur individuel / dénomination de la société]  
-[Adresse postale]  
-SIRET : [numéro] — [RCS ou RNE : ville et numéro, le cas échéant]  
-E-mail : [contact@lifesciences-ip.com](mailto:contact@lifesciences-ip.com) — Téléphone : [numéro]  
+Pierrick Rousseau — [Entrepreneur individuel / LifeSciencesIP]  
+60 chemin de la Badie 81100 Castres France  
+SIRET : 980 035 273 00013  
+E-mail : [pierickrousseau@lifesciences-ip.com](mailto:contact@lifesciences-ip.com) — Téléphone : [numéro]  
 Directeur(rice) de la publication : [Prénom Nom]
 
 ## Hébergement
