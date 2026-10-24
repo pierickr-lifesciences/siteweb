@@ -127,16 +127,9 @@ a_propos:
       sein de la JUB. j'exerce les fonctions de Co-médiateur et expert.
     - Enfin, j'interviens au sein des master PI de l'université d'Aix, Toulouse
       et Montpellier et master II en faculté de pharmacie de Montpellier et
-      coorganise un séminaire annuel au CEIPI dédié aux affaires réglementaires
-      et CCP réunissant des professionnels de haut niveau dans le domaine de la
-      santé
-  chiffres:
-    - valeur: "[XX]"
-      libelle: ans d'expérience
-    - valeur: "[XX]"
-      libelle: familles de brevets suivies
-    - valeur: FR · EN
-      libelle: langues de travail
+      coorganise une formation annuelle au CEIPI dédié aux affaires
+      réglementaires et CCP réunissant des professionnels de haut niveau dans le
+      domaine de la santé
 jurisprudence:
   surtitre: Veille jurisprudentielle
   etiquette: Dernière analyse
