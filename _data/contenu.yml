@@ -1,5 +1,5 @@
 identite:
-  maintenance: false
+  maintenance: true
   code_apercu_hash: 9966849bbba0cc654dd0e5bebf06e703ff20f352c11914b1683dd9d3c44505f6
 accueil:
   surtitre: Propriété intellectuelle · Sciences de la vie
