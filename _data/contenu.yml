@@ -1,5 +1,5 @@
 identite:
-  maintenance: false
+  maintenance: true
   code_apercu_hash: 9966849bbba0cc654dd0e5bebf06e703ff20f352c11914b1683dd9d3c44505f6
 accueil:
   surtitre: Propriété industrielle · Sciences de la vie
@@ -116,13 +116,12 @@ a_propos:
        De formation ingénieur Chimiste je me suis tourné vers le droit des
       brevets en étudiant au CEIPI puis ai passé les examens de qualifications
       de l'INPI et de l'OEB. Depuis juin 2023 je suis représentant au sein de la
-      JUB (Juridiction Unifiée des Brevets). 
-      J'ai passé l'ensemble de ma carrière dans l'industrie pharmaceutique et
-      cosmétique d'abord chez Sanofi (et prédécesseurs : Aventis, HMR,
-      Roussel-Uclaf) puis en tant que directeur propriété intellectuelle du
-      groupe Pierre Fabre jusqu'en 2021. A ce titre j'ai eu des responsabilités
-      au sein du LEEM, l'EFPIA et le G5 santé pour les aspects brevets et
-      marques.
+      JUB (Juridiction Unifiée des Brevets).  J'ai passé l'ensemble de ma
+      carrière dans l'industrie pharmaceutique et cosmétique d'abord chez Sanofi
+      (et prédécesseurs : Aventis, HMR, Roussel-Uclaf) puis en tant que
+      directeur propriété intellectuelle du groupe Pierre Fabre jusqu'en 2021. A
+      ce titre j'ai eu des responsabilités au sein du LEEM, l'EFPIA et le G5
+      santé pour les aspects brevets et marques.
     - "Entre 2019 et 2026, j'ai rejoint le Conseil d'administration de l'ASPIE
       (Association des Spécialistes de Propriété Intellectuelle d'Entreprise) en
       tant que trésorier et me suis investi dans le dossier de la
