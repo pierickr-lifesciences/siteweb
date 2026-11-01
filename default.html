@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{%- assign c = site.data.contenu -%}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }} — {{ site.title }}{% else %}{{ site.title }} — Conseil en stratégie de propriété intellectuelle, sciences de la vie{% endif %}</title>
+  <meta name="description" content="{{ page.resume | default: page.description | default: site.description | strip_html | escape }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ page.resume | default: page.description | default: site.description | strip_html | escape }}">
+  <meta property="og:type" content="website">
+  {%- if c.a_propos.photo and c.a_propos.photo != "" %}
+  <meta property="og:image" content="{{ site.url }}{{ c.a_propos.photo }}">
+  {%- endif %}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  {%- if c.identite.maintenance %}
+  <!-- MODE CONSTRUCTION : site masqué au public et à Google (case à cocher dans Pages CMS → Textes du site → Identité) -->
+  <meta name="robots" content="noindex, nofollow">
+  <script>
+    /* Aperçu réservé : ouvrir le site avec ?apercu=VOTRE_CODE (empreinte du code définie dans Pages CMS). */
+    (function () {
+      var H = "{{ c.identite.code_apercu_hash | strip | downcase }}";
+      var root = document.documentElement;
+      try {
+        var p = new URLSearchParams(location.search), code = p.get('apercu');
+        if (code === 'non') { localStorage.removeItem('lsip-apercu'); history.replaceState(null, '', location.pathname); return; }
+        if (H && localStorage.getItem('lsip-apercu') === H) root.classList.add('apercu');
+        if (H && code && window.crypto && crypto.subtle) {
+          crypto.subtle.digest('SHA-256', new TextEncoder().encode(code)).then(function (buf) {
+            var h = Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+            if (h === H) { localStorage.setItem('lsip-apercu', h); root.classList.add('apercu'); }
+            history.replaceState(null, '', location.pathname + location.hash);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    html:not(.apercu) body > *:not(.construction) { display: none !important; }
+    html.apercu .construction { display: none; }
+    .construction { min-height: 100vh; display: grid; place-items: center; padding: 24px; text-align: center; color: #b8c8de; font-family: "Inter", system-ui, sans-serif;
+      background: radial-gradient(700px 420px at 85% 10%, rgba(22,118,214,.45), transparent 65%), radial-gradient(500px 360px at 10% 100%, rgba(140,198,63,.16), transparent 70%), #0a1f3f; }
+    .construction img { display: block; margin: 0 auto 24px; border-radius: 16px; }
+    .construction h1 { color: #fff; font-family: "Plus Jakarta Sans", "Inter", sans-serif; font-weight: 700; letter-spacing: -.02em; font-size: clamp(2rem, 6vw, 3rem); margin: 0 0 .4em; }
+    .construction h1 span { color: #8cc63f; }
+    .construction p { font-size: 1.1rem; line-height: 1.6; margin: 0; }
+    .apercu-banner { display: none; }
+    html.apercu .apercu-banner { display: block; position: sticky; top: 0; z-index: 100; background: #f5b400; color: #1d1d1d; text-align: center; font: 600 .85rem "Inter", sans-serif; padding: 8px 16px; }
+    html.apercu .apercu-banner a { color: #1d1d1d; margin-left: 8px; }
+    html.apercu .header { top: 36px; }
+  </style>
+  {%- endif %}
+</head>
+<body>
+{%- if c.identite.maintenance %}
+<div class="construction">
+  <div class="construction__box">
+    <img src="/favicon.svg" alt="" width="64" height="64">
+    <h1>LifeSciences <span>IP</span></h1>
+    <p>Notre site est en cours de finalisation.<br>Il sera en ligne très prochainement.</p>
+  </div>
+</div>
+<div class="apercu-banner">Mode aperçu : le site est masqué au public et à Google. <a href="?apercu=non">Quitter l'aperçu</a></div>
+{%- endif %}
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo" aria-label="Accueil {{ site.title }}">
+      {%- if c.identite.logo and c.identite.logo != "" %}
+      <img src="{{ c.identite.logo }}" alt="{{ site.title }}" class="logo__img">
+      {%- else %}
+      <img src="/favicon.svg" alt="" class="logo__mark">
+      <span class="logo__text">LifeSciences <span>IP</span></span>
+      {%- endif %}
+    </a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <ul>
+        <li><a href="/#expertise">Expertise</a></li>
+        <li><a href="/#a-propos">À propos</a></li>
+        <li><a href="/jurisprudence.html"{% if page.menu == "jurisprudence" or page.rubrique == "jurisprudence" %} aria-current="page"{% endif %}>Jurisprudence</a></li>
+        <li><a href="/ressources.html"{% if page.menu == "ressources" or page.layout == "article" and page.rubrique != "jurisprudence" %} aria-current="page"{% endif %}>Ressources</a></li>
+        <li><a href="/#contact" class="btn btn--primary">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+{{ content }}
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="/" class="logo"><img src="/favicon.svg" alt="" class="logo__mark"><span class="logo__text">LifeSciences <span>IP</span></span></a>
+        <p>{{ c.pied_de_page.description | escape }}</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="/#expertise">Expertise</a></li>
+          <li><a href="/#a-propos">À propos</a></li>
+          <li><a href="/jurisprudence.html">Jurisprudence</a></li>
+          <li><a href="/ressources.html">Ressources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:{{ c.contact.email }}">{{ c.contact.email }}</a></li>
+          {%- if c.contact.linkedin and c.contact.linkedin != "" %}
+          <li><a href="{{ c.contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>
+          {%- endif %}
+          <li><a href="/#contact">Prendre rendez-vous</a></li>
+          <li><a href="/mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© {{ site.time | date: "%Y" }} {{ site.title }}. Tous droits réservés.</span>
+      <span>{{ c.pied_de_page.avertissement | escape }}</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
+</body>
+</html>
