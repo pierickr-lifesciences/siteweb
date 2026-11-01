@@ -53,13 +53,13 @@ layout: default
   <div class="container">
     <div class="section-head section-head--split">
       <div>
-        {%- if c.publications.surtitre and c.publications.surtitre != "" %}<span class="eyebrow">{{ c.publications.surtitre | escape }}</span>{% endif %}
-        <h2>{{ c.publications.titre | default: "Mes actualités" | escape }}</h2>
+        <span class="eyebrow">{{ c.publications.surtitre | default: "Mes actualités" | escape }}</span>
+        <h2>{{ c.publications.titre | default: "Dernières publications" | escape }}</h2>
         {%- if c.publications.intro and c.publications.intro != "" %}<p class="lead">{{ c.publications.intro | escape }}</p>{% endif %}
       </div>
       <div class="section-head__links">
         <a href="/jurisprudence.html" class="btn btn--ghost">Jurisprudence</a>
-        <a href="/ressources.html" class="btn btn--ghost">Toutes les publications</a>
+        <a href="/ressources.html" class="btn btn--ghost">Ressources</a>
       </div>
     </div>
     <div class="grid grid--3">
