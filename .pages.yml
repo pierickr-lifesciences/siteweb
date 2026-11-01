@@ -34,6 +34,8 @@ content:
               label: Analyse de jurisprudence
             - name: fiche
               label: Fiche pratique
+            - name: revue_presse
+              label: Revue de presse
             - name: actualite
               label: Actualité
       - name: categorie
@@ -107,9 +109,10 @@ content:
                 options:
                   values: [document, loupe, bouclier, calendrier, cadenas, contrat, fiole, globe]
       - name: secteurs
-        label: Secteurs
+        label: Secteurs (section masquée)
         type: object
         fields:
+          - { name: afficher, label: "Afficher la section Secteurs sur l'accueil", type: boolean }
           - { name: titre, label: Titre, type: string }
           - name: pharma
             label: Industrie pharmaceutique
@@ -143,28 +146,13 @@ content:
               - { name: titre, label: Profil, type: string }
               - { name: texte, label: Texte, type: text }
               - { name: points, label: Points, type: string, list: true }
-      - name: cabinet
-        label: Le cabinet
+      - name: publications
+        label: Mes actualités (section des derniers articles)
         type: object
         fields:
-          - { name: surtitre, label: Petit titre, type: string }
-          - { name: titre, label: Titre, type: string }
-          - { name: intro, label: Introduction, type: text }
-          - name: valeurs
-            label: Valeurs
-            type: object
-            list: true
-            fields:
-              - { name: titre, label: Titre, type: string }
-              - { name: texte, label: Texte, type: text }
-          - { name: methode_titre, label: Titre de la méthode, type: string }
-          - name: etapes
-            label: Étapes de la méthode
-            type: object
-            list: true
-            fields:
-              - { name: titre, label: Titre, type: string }
-              - { name: texte, label: Texte, type: text }
+          - { name: titre, label: "Titre (par défaut : Mes actualités)", type: string }
+          - { name: surtitre, label: "Petit titre au-dessus (facultatif)", type: string }
+          - { name: intro, label: "Introduction (facultatif)", type: text }
       - name: a_propos
         label: À propos
         type: object
