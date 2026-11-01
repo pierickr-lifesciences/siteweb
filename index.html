@@ -48,14 +48,14 @@ layout: default
   </div>
 </section>
 
-<!-- ===================== MES PUBLICATIONS ===================== -->
-<section class="section section--soft" id="veille">
+<!-- ===================== MES ACTUALITÉS ===================== -->
+<section class="section section--soft" id="actualites">
   <div class="container">
     <div class="section-head section-head--split">
       <div>
-        <span class="eyebrow">{{ c.publications.surtitre | escape }}</span>
-        <h2>{{ c.publications.titre | escape }}</h2>
-        <p class="lead">{{ c.publications.intro | escape }}</p>
+        {%- if c.publications.surtitre and c.publications.surtitre != "" %}<span class="eyebrow">{{ c.publications.surtitre | escape }}</span>{% endif %}
+        <h2>{{ c.publications.titre | default: "Mes actualités" | escape }}</h2>
+        {%- if c.publications.intro and c.publications.intro != "" %}<p class="lead">{{ c.publications.intro | escape }}</p>{% endif %}
       </div>
       <div class="section-head__links">
         <a href="/jurisprudence.html" class="btn btn--ghost">Jurisprudence</a>
@@ -101,61 +101,16 @@ layout: default
   </div>
 </section>
 
-<!-- ===================== À PROPOS ===================== -->
-<section class="section section--soft" id="a-propos">
-  <div class="container">
-    <div class="profil">
-      <div class="portrait">
-        <div class="portrait__img">
-          {%- if c.a_propos.photo and c.a_propos.photo != "" -%}
-          <img src="{{ c.a_propos.photo }}" alt="Portrait de {{ c.a_propos.nom | escape }}" style="object-position: {{ c.a_propos.cadrage_photo | default: 'center 25%' }}">
-          {%- else -%}
-          Photo à ajouter
-          {%- endif -%}
-        </div>
-        <div class="portrait__card">
-          <strong>{{ c.a_propos.nom | escape }}</strong>
-          <span>{{ c.a_propos.fonction | escape }}</span>
-        </div>
-      </div>
-      <div>
-        <span class="eyebrow">{{ c.profil.surtitre | escape }}</span>
-        <h2>{{ c.profil.titre | escape }}</h2>
-        <p class="lead">{{ c.profil.intro | escape }}</p>
-        <div class="bio">
-          {%- for p in c.a_propos.paragraphes %}
-          <p>{{ p | escape }}</p>
-          {%- endfor %}
-        </div>
-        <div class="values">
-          {%- for v in c.profil.valeurs %}
-          <div class="value"><h3>{{ v.titre | escape }}</h3><p>{{ v.texte | escape }}</p></div>
-          {%- endfor %}
-        </div>
-        <div class="facts">
-          {%- for f in c.a_propos.chiffres %}
-          <div><strong>{{ f.valeur | escape }}</strong><span>{{ f.libelle | escape }}</span></div>
-          {%- endfor %}
-        </div>
-      </div>
-    </div>
-
-    <h3 class="steps-title">{{ c.profil.methode_titre | escape }}</h3>
-    <div class="steps">
-      {%- for e in c.profil.etapes %}
-      <div class="step"><h3>{{ e.titre | escape }}</h3><p>{{ e.texte | escape }}</p></div>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
 <!-- ===================== EXPERTISE ===================== -->
-<section class="section" id="expertise">
+<section class="section section--soft" id="expertise">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Expertise</span>
       <h2>{{ c.expertise.titre | escape }}</h2>
-      <p class="lead">{{ c.expertise.intro | escape }}</p>
+      {%- assign intro_paras = c.expertise.intro | newline_to_br | split: "<br />" %}
+      {%- for para in intro_paras %}{% assign para_s = para | strip %}{% if para_s != "" %}
+      <p class="lead">{{ para_s | escape }}</p>
+      {%- endif %}{% endfor %}
     </div>
     <div class="grid grid--3">
       {%- for s in c.expertise.services %}
@@ -169,7 +124,50 @@ layout: default
   </div>
 </section>
 
-<!-- ===================== SECTEURS ===================== -->
+<!-- ===================== À PROPOS ===================== -->
+<section class="section" id="a-propos">
+  <div class="container">
+    <div class="profil">
+      <div class="portrait">
+        <div class="portrait__img">
+          {%- if c.a_propos.photo and c.a_propos.photo != "" -%}
+          <img src="{{ c.a_propos.photo }}" alt="Portrait de {{ c.a_propos.nom | escape }}" style="object-position: {{ c.a_propos.cadrage_photo | default: 'center 25%' }}">
+          {%- else -%}
+          Photo à ajouter
+          {%- endif -%}
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">À propos</span>
+        <h2>{{ c.a_propos.nom | escape }}</h2>
+        <p class="lead">{{ c.a_propos.fonction | escape }}</p>
+        <div class="bio">
+          {%- for p in c.a_propos.paragraphes limit:2 %}
+          <p>{{ p | strip | escape }}</p>
+          {%- endfor %}
+          {%- if c.a_propos.paragraphes.size > 2 %}
+          <details class="bio__more">
+            <summary>Lire la suite du parcours</summary>
+            {%- for p in c.a_propos.paragraphes offset:2 %}
+            <p>{{ p | strip | escape }}</p>
+            {%- endfor %}
+          </details>
+          {%- endif %}
+        </div>
+        {%- if c.a_propos.chiffres and c.a_propos.chiffres.size > 0 %}
+        <div class="facts">
+          {%- for f in c.a_propos.chiffres %}
+          <div><strong>{{ f.valeur | escape }}</strong><span>{{ f.libelle | escape }}</span></div>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTEURS (masquée sauf si cochée dans Pages CMS) ===================== -->
+{%- if c.secteurs.afficher %}
 <section class="section section--soft" id="secteurs">
   <div class="container">
     <div class="section-head">
@@ -191,6 +189,7 @@ layout: default
     </div>
   </div>
 </section>
+{%- endif %}
 
 <!-- ===================== SUIVRE LES PUBLICATIONS ===================== -->
 {%- if c.contact.linkedin and c.contact.linkedin != "" %}
