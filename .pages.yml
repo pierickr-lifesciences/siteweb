@@ -150,8 +150,8 @@ content:
         label: Mes actualités (section des derniers articles)
         type: object
         fields:
-          - { name: titre, label: "Titre (par défaut : Mes actualités)", type: string }
-          - { name: surtitre, label: "Petit titre au-dessus (facultatif)", type: string }
+          - { name: surtitre, label: "Petit titre vert (par défaut : Mes actualités)", type: string }
+          - { name: titre, label: "Titre (par défaut : Dernières publications)", type: string }
           - { name: intro, label: "Introduction (facultatif)", type: text }
       - name: a_propos
         label: À propos
