@@ -80,10 +80,10 @@
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav">
       <ul>
-        <li><a href="/#cabinet">Le cabinet</a></li>
+        <li><a href="/#actualites"{% if page.layout == "article" or page.menu %} aria-current="page"{% endif %}>Mes actualités</a></li>
+        <li><a href="/#pour-qui">Pour qui</a></li>
         <li><a href="/#expertise">Expertise</a></li>
-        <li><a href="/jurisprudence.html"{% if page.menu == "jurisprudence" or page.rubrique == "jurisprudence" %} aria-current="page"{% endif %}>Jurisprudence</a></li>
-        <li><a href="/ressources.html"{% if page.menu == "ressources" or page.layout == "article" and page.rubrique != "jurisprudence" %} aria-current="page"{% endif %}>Ressources</a></li>
+        <li><a href="/#a-propos">À propos</a></li>
         <li><a href="/#contact" class="btn btn--primary">Contact</a></li>
       </ul>
     </nav>
@@ -104,8 +104,10 @@
       <div>
         <h4>Navigation</h4>
         <ul>
-          <li><a href="/#cabinet">Le cabinet</a></li>
+          <li><a href="/#actualites">Mes actualités</a></li>
+          <li><a href="/#pour-qui">Pour qui</a></li>
           <li><a href="/#expertise">Expertise</a></li>
+          <li><a href="/#a-propos">À propos</a></li>
           <li><a href="/jurisprudence.html">Jurisprudence</a></li>
           <li><a href="/ressources.html">Ressources</a></li>
         </ul>
